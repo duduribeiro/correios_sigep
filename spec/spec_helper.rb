@@ -1,3 +1,5 @@
+require 'correios_sigep'
+
 require 'simplecov'
 SimpleCov.start
 
