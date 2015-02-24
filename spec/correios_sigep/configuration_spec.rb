@@ -1,0 +1,57 @@
+module CorreiosSigep
+  describe Configuration do
+    subject{ described_class.new }
+
+    describe '#administrative_code' do
+      it 'return nil when unset' do
+        expect(subject.administrative_code).to_not be
+      end
+    end
+
+    describe '#administrative_code=' do
+      it 'can set the administrative code in configuration' do
+        subject.administrative_code = '12345'
+        expect(subject.administrative_code).to eq '12345'
+      end
+    end
+
+    describe '#contract' do
+      it 'return nil when unset' do
+        expect(subject.contract).to_not be
+      end
+    end
+
+    describe '#contract=' do
+      it 'can set the contract in configuration' do
+        subject.contract = 'contract'
+        expect(subject.contract).to eq 'contract'
+      end
+    end
+
+    describe '#password' do
+      it 'return nil when unset' do
+        expect(subject.password).to_not be
+      end
+    end
+
+    describe '#password=' do
+      it 'can set the password in configuration' do
+        subject.password = 'password'
+        expect(subject.password).to eq 'password'
+      end
+    end
+
+    describe '#user' do
+      it 'return nil when unset' do
+        expect(subject.user).to_not be
+      end
+    end
+
+    describe '#user=' do
+      it 'can set the user in configuration' do
+        subject.user = 'user'
+        expect(subject.user).to eq 'user'
+      end
+    end
+  end
+end
