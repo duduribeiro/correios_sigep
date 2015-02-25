@@ -1,0 +1,6 @@
+Documentation:
+  Enabled: false
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'correios_sigep.gemspec'
