@@ -1,6 +1,6 @@
 module CorreiosSigep
   describe Configuration do
-    subject{ described_class.new }
+    subject { described_class.new }
 
     describe '#administrative_code' do
       it 'return nil when unset' do
