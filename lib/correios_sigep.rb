@@ -1,5 +1,6 @@
 require 'correios_sigep/version'
 require 'correios_sigep/configuration'
+require 'correios_sigep/builders/request_collect_number_xml_builder'
 require 'correios_sigep/models/recipient'
 require 'correios_sigep/models/product'
 require 'correios_sigep/models/recipient'
