@@ -1,7 +1,9 @@
-require 'correios_sigep'
-
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter "/spec/"
+end
+
+require 'correios_sigep'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
