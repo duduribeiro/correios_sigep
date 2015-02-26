@@ -17,4 +17,15 @@ RSpec.configure do |config|
   end
 
   config.include LogisticReverseHelper
+
+  config.before do
+    CorreiosSigep.configure do |config|
+      config.user                 = 'user'
+      config.password             = 'password'
+      config.administrative_code  = '12345'
+      config.card                 = 'card'
+      config.contract             = '67890'
+      config.service_code         = 'service_code'
+    end
+  end
 end
