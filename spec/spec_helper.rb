@@ -1,4 +1,6 @@
 require 'simplecov'
+require 'support/logistic_reverse_helper'
+
 SimpleCov.start do
   add_filter "/spec/"
 end
@@ -13,4 +15,6 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
+
+  config.include LogisticReverseHelper
 end
