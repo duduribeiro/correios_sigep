@@ -1,4 +1,3 @@
-require 'pry'
 module CorreiosSigep
   module LogisticReverse
     class RequestCollectNumber < BaseClient
