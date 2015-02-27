@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:solicitarPostagemReversaResponse xmlns:ns2="http://webservice.scol.correios.com.br/">
+      <return>
+        <status_processamento>00</status_processamento>
+        <data_processamento>04/04/2014</data_processamento>
+        <hora_processamento>15:02</hora_processamento>
+        <cod_erro>113</cod_erro>
+        <msg_erro>CEP DO DESTINATRIO INEXISTENTE (07760000)</msg_erro>
+      </return>
+    </ns2:solicitarPostagemReversaResponse>
+  </S:Body>
+</S:Envelope>
