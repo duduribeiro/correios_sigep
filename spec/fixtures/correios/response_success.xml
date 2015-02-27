@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:solicitarPostagemReversaResponse xmlns:ns2="http://webservice.scol.correios.com.br/">
+      <return>
+        <status_processamento>01</status_processamento>
+        <data_processamento>28/03/2014</data_processamento>
+        <hora_processamento>11:14</hora_processamento>
+        <cod_erro>00</cod_erro>
+        <msg_erro/>
+        <resultado_solicitacao>
+          <tipo>A</tipo>
+          <id_cliente>2102774</id_cliente>
+          <numero_coleta>373533437</numero_coleta>
+          <numero_etiqueta/>
+          <id_obj>2102774</id_obj>
+          <status_objeto>01</status_objeto>
+          <prazo>07/04/2014</prazo>
+          <data_solicitacao>28/03/2014</data_solicitacao>
+          <hora_solicitacao>11:14</hora_solicitacao>
+          <codigo_erro>0</codigo_erro>
+          <descricao_erro/>
+        </resultado_solicitacao>
+      </return>
+    </ns2:solicitarPostagemReversaResponse>
+  </S:Body>
+</S:Envelope>
