@@ -23,18 +23,23 @@ module CorreiosSigep
       end
 
       def handle_errors code, response_doc
-        result_node = response_doc
-                    .search('//resultado-solicitacao | //resultado_solicitacao')
+        result_string = '//resultado-solicitacao | //resultado_solicitacao'
+        result_node = response_doc.search(result_string)
 
         case code
 
         when Models::CorreiosResponseCodes::SUCCESS
-          #result =             .search('//numero-coleta | //numero_coleta')
+          result = result_node.search('//numero-coleta | //numero_coleta')
           if node = result.first
             collect_number = node.text
           end
         when Models::CorreiosResponseCodes::TICKET_ALREADY_USED
-          raise Models::Errors::TicketAlreadyUsed.new respo
+          raise Models::Errors::TicketAlreadyUsed.new result_node
+            .search('//msg_erro | //msg_erro').text
+        when Models::CorreiosResponseCodes::UNAVAILABLE_SERVICE
+          raise Models::Errors::UnavailableService.new
+        when Models::CorreiosResponseCodes::INEXISTENT_ZIPCODE
+          raise Models::Errors::InexistentZipcode.new
         else
           "error"
         end
