@@ -1,6 +1,10 @@
 ENV['GEM_ENV'] = 'test'
 require 'simplecov'
 require 'support/logistic_reverse_helper'
+require 'support/fixture_helper'
+require 'webmock/rspec'
+
+File.expand_path(File.dirname(File.dirname(__FILE__)))
 
 SimpleCov.start do
   add_filter "/spec/"
@@ -18,6 +22,7 @@ RSpec.configure do |config|
   end
 
   config.include LogisticReverseHelper
+  config.include FixtureHelper
 
   config.before do
     CorreiosSigep.configure do |config|
