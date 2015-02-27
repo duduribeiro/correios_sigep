@@ -1,3 +1,4 @@
+ENV['GEM_ENV'] = 'test'
 require 'simplecov'
 require 'support/logistic_reverse_helper'
 
@@ -20,12 +21,12 @@ RSpec.configure do |config|
 
   config.before do
     CorreiosSigep.configure do |config|
-      config.user                 = 'user'
-      config.password             = 'password'
-      config.administrative_code  = '12345'
-      config.card                 = 'card'
-      config.contract             = '67890'
-      config.service_code         = 'service_code'
+      config.user                 = '60618043'
+      config.password             = '8o8otn'
+      config.administrative_code  = '08082650'
+      config.card                 = '0057018901'
+      config.contract             = '9912208555'
+      config.service_code         = '41076'
     end
   end
 end
