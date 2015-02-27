@@ -1,6 +1,6 @@
 require 'correios_sigep/version'
 require 'correios_sigep/configuration'
-require 'correios_sigep/builders/request_collect_number_xml_builder'
+require 'correios_sigep/builders/xml/request_collect_number'
 require 'correios_sigep/models/recipient'
 require 'correios_sigep/models/product'
 require 'correios_sigep/models/recipient'
@@ -9,7 +9,12 @@ require 'correios_sigep/models/object'
 require 'correios_sigep/models/sender'
 require 'correios_sigep/models/collect'
 require 'correios_sigep/models/logistic_reverse'
+require 'correios_sigep/models/correios_response_codes'
+require 'correios_sigep/models/errors/ticket_already_used'
+require 'correios_sigep/logistic_reverse/base_client'
+require 'correios_sigep/logistic_reverse/request_collect_number'
 require 'nokogiri'
+require 'savon'
 
 module CorreiosSigep
   def self.configuration
