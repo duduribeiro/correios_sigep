@@ -37,9 +37,13 @@ module CorreiosSigep
           raise Models::Errors::TicketAlreadyUsed.new result_node
             .search('//msg_erro | //msg_erro').text
         when Models::CorreiosResponseCodes::UNAVAILABLE_SERVICE
-          raise Models::Errors::UnavailableService.new
+          raise Models::Errors::UnavailableService
         when Models::CorreiosResponseCodes::INEXISTENT_ZIPCODE
-          raise Models::Errors::InexistentZipcode.new
+          raise Models::Errors::InexistentZipcode
+        when Models::CorreiosResponseCodes::UNAVAILABLE_HOUSE_COLLECT
+          raise Models::Errors::UnavailableHouseCollect
+        when Models::CorreiosResponseCodes::COLLECT_NOT_ANSWERED_FOR_THE_ZIPCODE
+          raise Models::Errors::CollectNotAnsweredForTheZipcode
         else
           "error"
         end
