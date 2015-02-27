@@ -45,7 +45,8 @@ module CorreiosSigep
         when Models::CorreiosResponseCodes::COLLECT_NOT_ANSWERED_FOR_THE_ZIPCODE
           raise Models::Errors::CollectNotAnsweredForTheZipcode
         else
-          "error"
+          raise Models::Errors::UnknownError.new result_node
+            .search('//msg_erro | //msg_erro').text
         end
       end
     end

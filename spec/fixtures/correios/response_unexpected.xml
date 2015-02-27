@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+ <S:Body>
+  <ns2:solicitarPostagemReversaResponse xmlns:ns2="http://webservice.scol.correios.com.br/">
+    <return>
+      <status_processamento>66</status_processamento>
+        <data_processamento>30/03/2014</data_processamento>
+        <hora_processamento>13:05</hora_processamento>
+        <cod_erro>7657643786578436675843</cod_erro>
+        <msg_erro>NMERO DE E-TICKET J UTILIZADO (427222673)</msg_erro>
+     </return>
+  </ns2:solicitarPostagemReversaResponse>
+</S:Body>
+</S:Envelope>
