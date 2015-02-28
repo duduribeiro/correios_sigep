@@ -3,6 +3,7 @@ require 'simplecov'
 require 'support/logistic_reverse_helper'
 require 'support/fixture_helper'
 require 'webmock/rspec'
+require 'pry'
 
 File.expand_path(File.dirname(File.dirname(__FILE__)))
 
