@@ -1,26 +1,26 @@
-# CorreiosSigep
+CorreiosSigep
+=============
 
-TODO: Write a gem description
+Integrador responsável pela comunicação com o SigepWeb - http://goo.gl/z8VJjJ, sistema dos Correios.
+Documentação do SigepWeb: http://goo.gl/6TWp2f
 
-## Installation
+- Atualmente a Gem faz somente uma solicitação de uma postagem de reversa (documentação, pág 36).
 
-Add this line to your application's Gemfile:
+## Instalação
+
+Adicione ao seu Gemfile:
 
 ```ruby
 gem 'correios_sigep'
 ```
 
-And then execute:
+E execute:
 
     $ bundle
 
-Or install it yourself as:
+Ou instale manualmente com:
 
     $ gem install correios_sigep
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
