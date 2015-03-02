@@ -1,8 +1,15 @@
 language: ruby
 before_install:
-  - gem install bundler -v '~> 1.5'
+- gem install bundler -v '~> 1.5'
 rvm:
-  - 1.9.3
-  - 2.0.0
-  - 2.1.1
-  - jruby-19mode
+- 1.9.3
+- 2.0.0
+- 2.1.1
+- jruby-19mode
+deploy:
+  provider: rubygems
+  api_key:
+    secure: JxDBiuSJgTyne4WriC56QqOhhl07ojHN/qZerKyxabBj1yQ/GmxlzcdvXdU6eUFJ1E3BvrfrMmraJ28xADm2hG3xgxkNP/D7jqTv0o0h2CODh+W2dr0iv3bNkoDOfjChNrJZCLPXJbuQp8G3O/KJS84g4l4dEIRIRTCS/0yMEBc=
+  gem: correios_sigep
+  on:
+    repo: duduribeiro/correios_sigep
