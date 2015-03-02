@@ -3,12 +3,12 @@ module CorreiosSigep
     class RequestCollectNumber < BaseClient
       def initialize(logistic_reverse)
         @logistic_reverse = logistic_reverse
-        @client           = Savon.client(wsdl: wsdl)
+        super()
       end
 
       def process
         xml = Builders::XML::RequestCollectNumber.build_xml(@logistic_reverse)
-        response = @client.call(:solicitar_postagem_reversa, message: xml)
+        response = invoke(:solicitar_postagem_reversa, xml)
         process_response response
       end
 
