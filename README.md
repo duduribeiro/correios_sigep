@@ -1,9 +1,10 @@
 CorreiosSigep
 =============
 
-Integrador responsável pela comunicação com o SigepWeb - http://goo.gl/z8VJjJ, sistema dos Correios.
-Documentação do SigepWeb: http://goo.gl/6TWp2f
+[![Build Status](https://travis-ci.org/duduribeiro/correios_sigep.svg?branch=master)](https://travis-ci.org/duduribeiro/correios_sigep)
 
+- Integrador responsável pela comunicação com o SigepWeb - http://goo.gl/z8VJjJ.
+- Documentação do SigepWeb: http://goo.gl/6TWp2f
 - Atualmente a Gem faz somente uma solicitação de uma postagem de reversa (documentação, pág 36).
 
 ## Instalação
