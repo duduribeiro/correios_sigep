@@ -7,7 +7,7 @@ module CorreiosSigep
           @config = CorreiosSigep.configuration
         end
 
-        def build_xml
+        def build_xml!
           add_node "usuario", @config.user
           add_node "senha", @config.password
           add_node "codAdministrativo", @config.administrative_code
