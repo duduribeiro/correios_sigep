@@ -14,7 +14,7 @@ module CorreiosSigep
 
       private
 
-      def process_response(response)
+      def process_response response
         response_xml = response.to_xml.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
         response_doc = Nokogiri::XML.parse(response_xml)
         code = response_doc.search('//cod-erro | //cod_erro').text.to_i rescue nil
@@ -26,26 +26,29 @@ module CorreiosSigep
         result_node = response_doc.search(result_string)
 
         case code
-
         when Models::CorreiosResponseCodes::SUCCESS
           result = result_node.search('//numero-coleta | //numero_coleta')
-          if node = result.first
-            collect_number = node.text
-          end
+          result.first.text rescue nil
+
         when Models::CorreiosResponseCodes::TICKET_ALREADY_USED
-          raise Models::Errors::TicketAlreadyUsed.new result_node
-            .search('//msg_erro | //msg_erro').text
+          error_message = result_node.search('//msg_erro | //msg_erro').text
+          raise Models::Errors::TicketAlreadyUsed.new error_message
+
         when Models::CorreiosResponseCodes::UNAVAILABLE_SERVICE
           raise Models::Errors::UnavailableService
+
         when Models::CorreiosResponseCodes::INEXISTENT_ZIPCODE
           raise Models::Errors::InexistentZipcode
+
         when Models::CorreiosResponseCodes::UNAVAILABLE_HOUSE_COLLECT
           raise Models::Errors::UnavailableHouseCollect
+
         when Models::CorreiosResponseCodes::COLLECT_NOT_ANSWERED_FOR_THE_ZIPCODE
           raise Models::Errors::CollectNotAnsweredForTheZipcode
+
         else
-          raise Models::Errors::UnknownError.new result_node
-            .search('//msg_erro | //msg_erro').text
+          error_message = result_node.search('//msg_erro | //msg_erro').text
+          raise Models::Errors::UnknownError.new error_message
         end
       end
     end
