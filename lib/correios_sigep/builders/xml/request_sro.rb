@@ -1,10 +1,10 @@
 module CorreiosSigep
   module Builders
     module XML
-      class RequestCollectNumber
+      class RequestSRO
 
-        def self.build_xml(logistic_reverse)
-          document = Nokogiri::XML(logistic_reverse.to_xml)
+        def self.build_xml(sro)
+          document = Nokogiri::XML(sro.to_xml)
           XML::Authentication.new(document).build_xml!
 
           document
@@ -16,3 +16,4 @@ module CorreiosSigep
     end
   end
 end
+

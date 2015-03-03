@@ -14,8 +14,11 @@ module CorreiosSigep
       end
 
       def invoke(method, message)
-        @client.instance_variable_set(:@wsdl,
-          Wasabi::Document.new(CorreiosSigep.configuration.wsdl_base_url)) if wsdl_base_url_changed?
+        @client.instance_variable_set(
+          :@wsdl,
+          Wasabi::Document.new(CorreiosSigep.configuration.wsdl_base_url)
+        ) if wsdl_base_url_changed?
+
         @client.call(method, message: message)
       end
 
