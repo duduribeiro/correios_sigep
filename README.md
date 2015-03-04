@@ -5,7 +5,10 @@ CorreiosSigep
 
 - Integrador responsável pela comunicação com o SigepWeb - http://goo.gl/z8VJjJ.
 - Excelente documentação do SigepWeb providenciada pelos Correios: http://goo.gl/6TWp2f :trollface:
-- Atualmente a Gem faz somente uma solicitação de uma postagem de reversa (documentação, pág 36).
+
+- Métodos suportados
+-- Solicitação de postagem de reversa (documentação, pág 36)
+-- Busca de SRO - ticket (documentação, pág 39)
 
 ## Instalação
 
