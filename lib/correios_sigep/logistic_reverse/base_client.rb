@@ -2,7 +2,10 @@ module CorreiosSigep
   module LogisticReverse
     class BaseClient
       def initialize
-        @client = Savon.client(wsdl: wsdl)
+        options = { wsdl: wsdl, proxy: CorreiosSigep.configuration.proxy }
+        options.delete(:proxy) unless options[:proxy]
+
+        @client = Savon.client(options)
       end
 
       def wsdl
