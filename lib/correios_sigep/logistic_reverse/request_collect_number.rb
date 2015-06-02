@@ -31,7 +31,7 @@ module CorreiosSigep
           result.first.text rescue nil
 
         when Models::CorreiosResponseCodes::TICKET_ALREADY_USED
-          error_message = result_node.search('//msg_erro | //msg_erro').text
+          error_message = result_node.search('//msg-erro | //msg_erro').text
           raise Models::Errors::TicketAlreadyUsed.new error_message
 
         when Models::CorreiosResponseCodes::UNAVAILABLE_SERVICE
@@ -47,8 +47,10 @@ module CorreiosSigep
           raise Models::Errors::CollectNotAnsweredForTheZipcode
 
         else
-          error_message = result_node.search('//msg_erro | //msg_erro').text
-          raise Models::Errors::UnknownError.new error_message
+          error_message = result_node.search('//msg-erro | //msg_erro').text
+          invalid_xml_message = response_doc.search("//return").text
+
+          raise Models::Errors::UnknownError.new [error_message, invalid_xml_message].join(', ')
         end
       end
     end
