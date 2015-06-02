@@ -7,6 +7,7 @@ module CorreiosSigep
       INEXISTENT_ZIPCODE                    = 113
       UNAVAILABLE_HOUSE_COLLECT             = 111
       COLLECT_NOT_ANSWERED_FOR_THE_ZIPCODE  = 117
+      NOT_CONFIGURED_CLIENT                 = 105
     end
   end
 end

@@ -24,6 +24,7 @@ module CorreiosSigep
       def handle_errors code, response_doc
         result_string = '//resultado-solicitacao | //resultado_solicitacao'
         result_node = response_doc.search(result_string)
+        error_message = response_doc.search('//msg-erro | //msg_erro').text rescue ''
 
         case code
         when Models::CorreiosResponseCodes::SUCCESS
@@ -31,7 +32,6 @@ module CorreiosSigep
           result.first.text rescue nil
 
         when Models::CorreiosResponseCodes::TICKET_ALREADY_USED
-          error_message = result_node.search('//msg-erro | //msg_erro').text
           raise Models::Errors::TicketAlreadyUsed.new error_message
 
         when Models::CorreiosResponseCodes::UNAVAILABLE_SERVICE
@@ -45,6 +45,9 @@ module CorreiosSigep
 
         when Models::CorreiosResponseCodes::COLLECT_NOT_ANSWERED_FOR_THE_ZIPCODE
           raise Models::Errors::CollectNotAnsweredForTheZipcode
+
+        when Models::CorreiosResponseCodes::NOT_CONFIGURED_CLIENT
+          raise Models::Errors::NotConfiguredClient.new error_message
 
         else
           error_message = result_node.search('//msg-erro | //msg_erro').text
