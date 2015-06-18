@@ -2,18 +2,19 @@ module CorreiosSigep
   module Builders
     module XML
       class Authentication
-        def initialize(builder)
+        def initialize(builder, administrative_fields)
           @builder = builder
           @config = CorreiosSigep.configuration
+          @administrative_fields = administrative_fields
         end
 
         def build_xml!
           add_node "usuario", @config.user
           add_node "senha", @config.password
-          add_node "codAdministrativo", @config.administrative_code
-          add_node "contrato", @config.contract
-          add_node "codigo_servico", @config.service_code
-          add_node "cartao", @config.card
+          add_node "codAdministrativo", @administrative_fields.administrative_code
+          add_node "contrato", @administrative_fields.contract
+          add_node "codigo_servico", @administrative_fields.service_code
+          add_node "cartao", @administrative_fields.card
         end
 
         private

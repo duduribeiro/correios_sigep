@@ -1,4 +1,5 @@
 require 'correios_sigep/version'
+require 'correios_sigep/models/administrative_fields'
 require 'correios_sigep/configuration'
 require 'correios_sigep/builders/xml/recipient'
 require 'correios_sigep/builders/xml/sender'
