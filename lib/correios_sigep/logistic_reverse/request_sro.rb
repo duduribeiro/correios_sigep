@@ -1,13 +1,14 @@
 module CorreiosSigep
   module LogisticReverse
     class RequestSRO < BaseClient
-      def initialize(sro)
+      def initialize(sro, overrides={})
         @sro = sro
+        @overrides = overrides
         super()
       end
 
       def process
-        xml = Builders::XML::RequestSRO.build_xml(@sro)
+        xml = Builders::XML::RequestSRO.build_xml(@sro, @overrides)
         process_response invoke(:acompanhar_pedido, xml)
       end
 

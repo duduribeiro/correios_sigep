@@ -1,13 +1,14 @@
 module CorreiosSigep
   module LogisticReverse
     class RequestCollectNumber < BaseClient
-      def initialize(logistic_reverse)
+      def initialize(logistic_reverse, overrides={})
         @logistic_reverse = logistic_reverse
+        @overrides        = overrides
         super()
       end
 
       def process
-        xml = Builders::XML::RequestCollectNumber.build_xml(@logistic_reverse)
+        xml = Builders::XML::RequestCollectNumber.build_xml(@logistic_reverse, @overrides)
         response = invoke(:solicitar_postagem_reversa, xml)
         process_response response
       end
