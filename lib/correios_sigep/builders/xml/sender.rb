@@ -14,7 +14,7 @@ module CorreiosSigep
             @builder.numero        @sender.number
             @builder.complemento   @sender.complement
             @builder.bairro        @sender.neighborhood
-            @builder.reference     @sender.reference
+            @builder.referencia    @sender.reference
             @builder.cidade        @sender.city
             @builder.uf            @sender.state
             @builder.cep           @sender.postal_code
