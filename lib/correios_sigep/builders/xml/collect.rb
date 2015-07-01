@@ -21,12 +21,9 @@ module CorreiosSigep
             @builder.ar                @collect.ar
             XML::Sender.new(@builder, @collect.sender).build_xml
             XML::Product.new(@builder, @collect.product).build_xml
-            @builder.obj_col do
-              XML::CollectObjects.new(@builder, @collect.objects).build_xml
-            end
+            XML::CollectObjects.new(@builder, @collect.objects).build_xml
           end
         end
-
       end
     end
   end
