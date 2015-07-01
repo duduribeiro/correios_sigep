@@ -1,4 +1,5 @@
-<cartao>0057018901</cartao><codigo_servico>41076</codigo_servico><contrato>9912208555</contrato><codAdministrativo>08082650</codAdministrativo><senha>8o8otn</senha><usuario>60618043</usuario>
+<?xml version="1.0"?>
+<root>
   <destinatario>
     <nome>ESTABELECIMENT W*M</nome>
     <logradouro>ESTRADA DE ACESSO A JANDIRA</logradouro>
@@ -62,4 +63,4 @@
       <num>2</num>
     </obj_col>
   </coletas_solicitadas>
-
+</root>
