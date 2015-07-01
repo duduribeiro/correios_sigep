@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<root>
+  <destinatario>
+    <nome>ESTABELECIMENT W*M</nome>
+    <logradouro>ESTRADA DE ACESSO A JANDIRA</logradouro>
+    <numero>1400</numero>
+    <complemento>G4</complemento>
+    <bairro>FAZENDA ITAQUI</bairro>
+    <referencia>REFERENCE</referencia>
+    <cidade>BARUERI</cidade>
+    <uf>SP</uf>
+    <cep>06442130</cep>
+    <ddd>11</ddd>
+    <telefone>21683228</telefone>
+    <email>teste@example.com</email>
+  </destinatario>
+  <coletas_solicitadas>
+    <tipo>CA</tipo>
+    <id_cliente>1405670</id_cliente>
+    <valor_declarado>100.5</valor_declarado>
+    <descricao>teste</descricao>
+    <cklist>cklist</cklist>
+    <numero>1</numero>
+    <ag>1</ag>
+    <cartao>1234</cartao>
+    <servico_adicional>20.5</servico_adicional>
+    <ar>2</ar>
+    <remetente>
+      <nome>JEFERSON VAZ DOS SANTOS</nome>
+      <logradouro>RUA BLA BLA BLA</logradouro>
+      <numero>666</numero>
+      <complemento>APT 100</complemento>
+      <bairro>PINHEIROS</bairro>
+      <referencia>REFERENCE</referencia>
+      <cidade>S&#xC3;O PAULO</cidade>
+      <uf>SP</uf>
+      <cep>05427020</cep>
+      <ddd>16</ddd>
+      <telefone>41606809</telefone>
+      <email>jeff@example.com</email>
+      <identificacao/>
+      <ddd_celular/>
+      <celular/>
+      <sms/>
+    </remetente>
+    <produto>
+      <codigo>code</codigo>
+      <tipo>type</tipo>
+      <qtd>3</qtd>
+    </produto>
+    <obj_col>
+      <item>127078</item>
+      <id>1405670</id>
+      <desc>Pen Drive SAndisk 16GB SDCZ50-016G-A95</desc>
+      <ship>ship</ship>
+      <num>1</num>
+    </obj_col>
+    <obj_col>
+      <item>277574</item>
+      <id>1405670</id>
+      <desc>Chip unico claro Pre pago</desc>
+      <ship>ship</ship>
+      <num>2</num>
+    </obj_col>
+  </coletas_solicitadas>
+</root>
