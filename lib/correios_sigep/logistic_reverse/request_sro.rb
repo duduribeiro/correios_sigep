@@ -16,13 +16,7 @@ module CorreiosSigep
       def process_response response
         correios_hash = response.body[:acompanhar_pedido_response][:return]
 
-        case correios_hash[:cod_erro].to_i
-        when 0
-          correios_hash[:coleta][:objeto][:numero_etiqueta]
-        else
-          # TODO look for a descritpion of this weird error
-          raise Models::Errors::SRONotReady
-        end
+        correios_hash[:coleta][:objeto][:numero_etiqueta] || begin raise Models::Errors::SRONotReady; end
       end
     end
   end
