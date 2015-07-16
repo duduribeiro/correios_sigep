@@ -40,6 +40,31 @@ module CorreiosSigep
             expect{subject}.to raise_error Models::Errors::SRONotReady
           end
         end
+
+        context 'when required fields is not filled' do
+          let(:response_body) { 'response_required_fields.xml' }
+
+          it 'raises RequiredFields error' do
+            expect{subject}.to raise_error Models::Errors::RequiredFields
+          end
+        end
+
+        context 'when CollectNumber does not exist or it is not valid' do
+          let(:response_body) { 'response_collect_number_not_found.xml' }
+
+          it 'raises CollectNumberNotFound' do
+            expect{subject}.to raise_error Models::Errors::CollectNumberNotFound
+          end
+        end
+
+        context 'with an unknow error' do
+          let(:response_body) { 'response_unknown_error.xml' }
+
+          it 'raises UnkowError' do
+            expect{subject}.to raise_error Models::Errors::UnknownError
+          end
+        end
+
       end
     end
   end

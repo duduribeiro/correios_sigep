@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:acompanharPedidoResponse xmlns:ns2="http://webservice.scol.correios.com.br/">
+      <return>
+        <data>16/07/2015</data>
+        <hora>11:35</hora>
+        <cod_erro>-7</cod_erro>
+        <msg_erro>Dados obrigatórios não informados.</msg_erro>
+      </return>
+    </ns2:acompanharPedidoResponse>
+  </S:Body>
+</S:Envelope>
