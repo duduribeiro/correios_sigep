@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://webservice.scol.correios.com.br/" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns:acompanharPedido><cartao>0057018901</cartao><codigo_servico>41076</codigo_servico><contrato>9912208555</contrato><codAdministrativo>08082650</codAdministrativo><senha>8o8otn</senha><usuario>60618043</usuario>
+      <tipoBusca>H</tipoBusca>
+      <tipoSolicitacao>A</tipoSolicitacao>
+      <numeroPedido>1234</numeroPedido>
+</tns:acompanharPedido></env:Body></env:Envelope>
