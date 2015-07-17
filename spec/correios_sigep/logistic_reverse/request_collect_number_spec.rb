@@ -6,7 +6,6 @@ module CorreiosSigep
       let(:logistic_reverse) { Models::LogisticReverse.new }
       let(:request_collect)  { described_class.new logistic_reverse }
       let(:body)             { request_fixture('collect_number_request.xml') }
-      let(:request_header)   { request_fixture('header.txt') }
 
       before do
         seed_logistic_reverse(logistic_reverse)
@@ -22,7 +21,7 @@ module CorreiosSigep
             'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
             'Content-Length'=>'2267', 'Content-Type'=>'text/xml;charset=UTF-8',
             'Soapaction'=>'"solicitarPostagemReversa"', 'User-Agent'=>'Ruby' }).
-         to_return(:status => 200, :body => correios_fixture(response_body), :headers => {})
+         to_return(:status => 200, :body => correios_fixture("request_collect_number/#{response_body}"), :headers => {})
       end
 
       describe '.process' do

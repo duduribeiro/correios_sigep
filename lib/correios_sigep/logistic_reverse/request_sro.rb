@@ -15,13 +15,20 @@ module CorreiosSigep
       private
       def process_response response
         correios_hash = response.body[:acompanhar_pedido_response][:return]
+        check_sro_errors correios_hash
+        correios_hash[:coleta][:objeto][:numero_etiqueta] || begin raise Models::Errors::SRONotReady; end
+      end
 
-        case correios_hash[:cod_erro].to_i
+      def check_sro_errors return_body
+        error_msg = return_body[:msg_erro]
+        case return_body[:cod_erro].to_i
         when 0
-          correios_hash[:coleta][:objeto][:numero_etiqueta]
+        when -7
+          raise Models::Errors::RequiredFields.new(error_msg)
+        when -5
+          raise Models::Errors::CollectNumberNotFound.new(error_msg)
         else
-          # TODO look for a descritpion of this weird error
-          raise Models::Errors::SRONotReady
+          raise Models::Errors::UnknownError.new(error_msg)
         end
       end
     end
