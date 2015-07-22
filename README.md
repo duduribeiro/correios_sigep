@@ -117,7 +117,7 @@ Se for necessário, é possível adicionar também um proxy.
   }.merge(sender: sender, objects: objects, product: product))
 
   logistic_reverse = CorreiosSigep::Models::LogisticReverse.new(recipient: recipient, collect: collect)
-  collect_number = CorreiosSigep::LogisticReverse::RequestCollectNumber.new(logistic_reverse, administrative: administrative_fields).process
+  collect_number = CorreiosSigep::LogisticReverse::RequestCollectNumber.new(logistic_reverse).process
 
 ```
 
