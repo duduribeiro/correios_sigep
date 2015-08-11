@@ -121,6 +121,16 @@ Se for necessário, é possível adicionar também um proxy.
 
 ```
 
+#### Possíveis erros mapeados
+```ruby
+TICKET_ALREADY_USED                   = 195 # NÚMERO DE E-TICKET JÁ UTILIZA
+UNAVAILABLE_SERVICE                   = 210 # SERVIÇO INDISPONÍVEL NO MOMENTO
+INEXISTENT_ZIPCODE                    = 113 # CEP DO DESTINATÁRIO INEXISTENTE
+UNAVAILABLE_HOUSE_COLLECT             = 111 # COLETA DOMICILIAR NÃO DISPONÍVEL PARA O SERVIÇO SEDEX 10
+COLLECT_NOT_ANSWERED_FOR_THE_ZIPCODE  = 117 # CEP DO REMETENTE INEXISTENTE
+NOT_CONFIGURED_CLIENT                 = 105 # CLIENTE NÃO CONFIGURADO PARA USAR O SISTEMA
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/duduribeiro/correios_sigep/fork )
