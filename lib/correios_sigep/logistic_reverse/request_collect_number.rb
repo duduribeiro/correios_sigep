@@ -51,8 +51,8 @@ module CorreiosSigep
           raise Models::Errors::NotConfiguredClient.new error_message
 
         else
-          error_message = result_node.search('//msg-erro | //msg_erro').text
-          invalid_xml_message = response_doc.search("//return").text
+          error_message = result_node.search('//msg-erro | //msg_erro').text rescue ''
+          invalid_xml_message = response_doc.search("//return").text rescue ''
 
           raise Models::Errors::UnknownError.new [error_message, invalid_xml_message].join(', ')
         end
