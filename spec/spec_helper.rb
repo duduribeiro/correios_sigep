@@ -1,4 +1,5 @@
 ENV['GEM_ENV'] = 'test'
+require 'pry'
 require 'simplecov'
 require 'support/logistic_reverse_helper'
 require 'support/fixture_helper'

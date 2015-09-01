@@ -33,6 +33,7 @@ require 'correios_sigep/models/errors/collect_number_not_found'
 require 'correios_sigep/logistic_reverse/base_client'
 require 'correios_sigep/logistic_reverse/request_collect_number'
 require 'correios_sigep/logistic_reverse/request_sro'
+require 'net/http/persistent'
 require 'nokogiri'
 require 'savon'
 

@@ -10,8 +10,9 @@ module CorreiosSigep
           before { CorreiosSigep.configuration.proxy = 'http://localhost' }
           let(:params) do
             {
-              wsdl:  described_class.new.wsdl,
-              proxy: CorreiosSigep.configuration.proxy
+              adapter: :net_http_persistent,
+              proxy: CorreiosSigep.configuration.proxy,
+              wsdl:  described_class.new.wsdl
             }
           end
 
@@ -23,7 +24,7 @@ module CorreiosSigep
 
         context 'without a proxy' do
           before { CorreiosSigep.configuration.proxy = nil }
-          let(:params) { { wsdl: described_class.new.wsdl } }
+          let(:params) { { adapter: :net_http_persistent, wsdl: described_class.new.wsdl } }
 
           it 'initializes @client without proxy' do
             expect(Savon).to receive(:client).with(params) { true }
