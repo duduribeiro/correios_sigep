@@ -65,6 +65,14 @@ module CorreiosSigep
           end
         end
 
+        context 'when response is an array' do
+          let(:response_body) { 'response_array_success.xml' }
+
+          it 'returns sro ticket' do
+            expect(subject).to eq 'ETI12345'
+          end
+        end
+
       end
     end
   end
