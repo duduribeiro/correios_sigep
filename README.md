@@ -2,6 +2,7 @@ CorreiosSigep
 =============
 
 [![Build Status](https://travis-ci.org/duduribeiro/correios_sigep.svg?branch=master)](https://travis-ci.org/duduribeiro/correios_sigep)
+[![Coverage Status](https://coveralls.io/repos/duduribeiro/correios_sigep/badge.svg?branch=master&service=github)](https://coveralls.io/github/duduribeiro/correios_sigep?branch=master)
 
 - Integrador responsável pela comunicação com o SigepWeb - http://goo.gl/z8VJjJ.
 - Excelente documentação do SigepWeb providenciada pelos Correios: http://goo.gl/6TWp2f :trollface:
