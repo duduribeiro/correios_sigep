@@ -1,9 +1,11 @@
 ENV['GEM_ENV'] = 'test'
+require 'coveralls'
 require 'pry'
 require 'simplecov'
 require 'support/logistic_reverse_helper'
 require 'support/fixture_helper'
 require 'webmock/rspec'
+Coveralls.wear!
 
 File.expand_path(File.dirname(File.dirname(__FILE__)))
 
