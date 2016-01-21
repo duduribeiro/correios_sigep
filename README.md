@@ -84,18 +84,18 @@ Se for necessário, é possível adicionar também um proxy.
     state: 'Estado'
   })
   objects   = [
-    {
+    CorreiosSigep::Models::Object.new({
       item: 'Item',
       id: '1',
       description: 'Descricao',
       num: '',
-    },
-    {
+    }),
+    CorreiosSigep::Models::Object.new({
       item: 'Item',
       id: '2',
       description: 'Descricao',
       num: '',
-    }
+    })
   ]
 
   # Produto: pag 67 da documentação oficial dos correios
