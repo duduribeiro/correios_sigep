@@ -19,6 +19,14 @@ module CorreiosSigep
 
       end
 
+      def with_product(product = nil, &block)
+        @instance.product = if block_given?
+                              Models::Product.build(&block)
+                            else
+                              product
+                            end
+      end
+
       def with_sender(sender = nil, &block)
         @instance.sender = if block_given?
                              Models::Sender.build(&block)

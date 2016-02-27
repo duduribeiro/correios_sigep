@@ -54,6 +54,14 @@ module CorreiosSigep
           })
         end
 
+        let(:product) do
+          CorreiosSigep::Models::Product.new({
+            code: '116600403',
+            type: '0',
+            quantity: 1
+          })
+        end
+
         subject do
           described_class.build do
             with_recipient do
@@ -98,6 +106,12 @@ module CorreiosSigep
                 state        'Estado'
               end
 
+              with_product do
+                code     '116600403'
+                type     '0'
+                quantity 1
+              end
+
               add_object do
                 item        'Item'
                 id          '1'
@@ -133,6 +147,12 @@ module CorreiosSigep
           %i(address area_code city complement email name neighborhood number
              phone postal_code reference state).each do |property|
             expect(subject.collect.sender.send(property)).to eq(sender.send(property))
+          end
+        end
+
+        it 'initializes with the correct product' do
+          %i(code type quantity).each do |property|
+            expect(subject.collect.product.send(property)).to eq(product.send(property))
           end
         end
 
