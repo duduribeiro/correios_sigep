@@ -22,6 +22,23 @@ module CorreiosSigep
           })
         end
 
+        let(:sender) do
+          CorreiosSigep::Models::Sender.new({
+            address: 'Endereco',
+            area_code: 'DDD',
+            city: 'Cidade',
+            complement: 'Complemento',
+            email: 'Email',
+            name: 'Nome',
+            neighborhood: 'Bairro',
+            number: 'Numero',
+            phone: 'Telefone',
+            postal_code: 'CEP',
+            reference: 'Referencia',
+            state: 'Estado'
+          })
+        end
+
         let(:collect) do
           CorreiosSigep::Models::Collect.new({
             aditional_service: '10.00',
@@ -65,6 +82,21 @@ module CorreiosSigep
               description       'Descricao'
               number            ''
               type              'A'
+
+              with_sender do
+                address      'Endereco'
+                area_code    'DDD'
+                city         'Cidade'
+                complement   'Complemento'
+                email        'Email'
+                name         'Nome'
+                neighborhood 'Bairro'
+                number       'Numero'
+                phone        'Telefone'
+                postal_code  'CEP'
+                reference    'Referencia'
+                state        'Estado'
+              end
             end
           end
         end
@@ -80,6 +112,13 @@ module CorreiosSigep
           %i(aditional_service ag ar card checklist declared_value description
              number objects type client_id).each do |property|
                expect(subject.collect.send(property)).to eq(collect.send(property))
+          end
+        end
+
+        it 'initializes with the correct sender' do
+          %i(address area_code city complement email name neighborhood number
+             phone postal_code reference state).each do |property|
+            expect(subject.collect.sender.send(property)).to eq(sender.send(property))
           end
         end
       end

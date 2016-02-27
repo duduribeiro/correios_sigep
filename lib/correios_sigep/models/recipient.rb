@@ -6,7 +6,7 @@ module CorreiosSigep
                     :state
 
       def self.build(&block)
-        builder = Builders::Recipient.new
+        builder = Builders::Person.new(self)
         builder.instance_eval(&block)
         builder.build
       end

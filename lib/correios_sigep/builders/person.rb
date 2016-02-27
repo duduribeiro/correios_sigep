@@ -1,10 +1,10 @@
 module CorreiosSigep
   module Builders
-    class Recipient
-      include DSL::Recipient
+    class Person
+      include DSL::Person
 
-      def initialize
-        @instance = Models::Recipient.new
+      def initialize(klass)
+        @instance = klass.new
       end
 
       def build

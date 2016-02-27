@@ -9,6 +9,14 @@ module CorreiosSigep
           end
         end
       end
+
+      def with_sender(sender = nil, &block)
+        @instance.sender = if block_given?
+                             Models::Sender.build(&block)
+                           else
+                             sender
+                           end
+      end
     end
   end
 end
