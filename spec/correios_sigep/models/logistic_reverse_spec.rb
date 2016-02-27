@@ -4,6 +4,51 @@ module CorreiosSigep
       it { should respond_to :collect }
       it { should respond_to :recipient }
 
+      describe ".build" do
+        let(:recipient) do
+          CorreiosSigep::Models::Recipient.new({
+            address: 'Endereco',
+            area_code: 'DDD',
+            city: 'Cidade',
+            complement: 'Complemento',
+            email: 'Email',
+            name: 'Nome',
+            neighborhood: 'Bairro',
+            number: 'Numero',
+            phone: 'Telefone',
+            postal_code: 'CEP',
+            reference: 'Referencia',
+            state: 'Estado'
+          })
+        end
+
+        subject do
+          described_class.build do
+            with_recipient do
+              address      'Endereco'
+              area_code    'DDD'
+              city         'Cidade'
+              complement   'Complemento'
+              email        'Email'
+              name         'Nome'
+              neighborhood 'Bairro'
+              number       'Numero'
+              phone        'Telefone'
+              postal_code  'CEP'
+              reference    'Referencia'
+              state        'Estado'
+            end
+          end
+        end
+
+        it "initialize the model with all correct objects" do
+          %i(address area_code city complement email name neighborhood number
+             phone postal_code reference state).each do |property|
+            expect(subject.recipient.send(property)).to eq(recipient.send(property))
+          end
+        end
+      end
+
       describe '#initialize' do
         let(:logistic_reverse) { described_class.new params }
 

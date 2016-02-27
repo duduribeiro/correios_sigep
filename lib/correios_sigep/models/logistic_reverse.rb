@@ -1,9 +1,17 @@
 module CorreiosSigep
   module Models
     class LogisticReverse
+      include DSL::LogisticReverse
+
       attr_accessor :collect, :recipient
 
-      def initialize(options={})
+      def self.build(&block)
+        instance = new
+        instance.instance_eval(&block)
+        instance
+      end
+
+      def initialize(options = {})
         @collect    = options[:collect] || Models::Collect.new
         @recipient  = options[:recipient] || Models::Recipient.new
       end
@@ -16,7 +24,6 @@ module CorreiosSigep
           end
         end
         builder.to_xml
-
       end
     end
   end

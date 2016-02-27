@@ -5,7 +5,13 @@ module CorreiosSigep
                     :neighborhood, :number, :phone, :postal_code, :reference,
                     :state
 
-      def initialize(options={})
+      def self.build(&block)
+        builder = Builders::Recipient.new
+        builder.instance_eval(&block)
+        builder.build
+      end
+
+      def initialize(options = {})
         @address      = options[:address]
         @area_code    = options[:area_code]
         @city         = options[:city]
@@ -19,7 +25,6 @@ module CorreiosSigep
         @reference    = options[:reference]
         @state        = options[:state]
       end
-
     end
   end
 end
