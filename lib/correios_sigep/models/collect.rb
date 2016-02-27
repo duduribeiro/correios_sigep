@@ -5,7 +5,13 @@ module CorreiosSigep
                     :declared_value, :description, :number, :objects, :product,
                     :product_params, :type, :sender, :sender_params, :client_id
 
-      def initialize(options={})
+      def self.build(&block)
+        builder = Builders::Collect.new
+        builder.instance_eval(&block)
+        builder.build
+      end
+
+      def initialize(options = {})
         @aditional_service  = options[:aditional_service]
         @ag                 = options[:ag]
         @ar                 = options[:ar]

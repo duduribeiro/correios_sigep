@@ -22,6 +22,21 @@ module CorreiosSigep
           })
         end
 
+        let(:collect) do
+          CorreiosSigep::Models::Collect.new({
+            aditional_service: '10.00',
+            ag: '5',
+            ar: '1',
+            card: '',
+            checklist: '2',
+            client_id: '102030',
+            declared_value: '1000.00',
+            description: 'Descricao',
+            number: '',
+            type: 'A'
+          })
+        end
+
         subject do
           described_class.build do
             with_recipient do
@@ -38,13 +53,33 @@ module CorreiosSigep
               reference    'Referencia'
               state        'Estado'
             end
+
+            with_collect do
+              aditional_service '10.00'
+              ag                '5'
+              ar                '1'
+              card              ''
+              checklist         '2'
+              client_id         '102030'
+              declared_value    '1000.00'
+              description       'Descricao'
+              number            ''
+              type              'A'
+            end
           end
         end
 
-        it "initialize the model with all correct objects" do
+        it 'initializes with the correct recipient' do
           %i(address area_code city complement email name neighborhood number
              phone postal_code reference state).each do |property|
             expect(subject.recipient.send(property)).to eq(recipient.send(property))
+          end
+        end
+
+        it 'initializes with the correct collect' do
+          %i(aditional_service ag ar card checklist declared_value description
+             number objects type client_id).each do |property|
+               expect(subject.collect.send(property)).to eq(collect.send(property))
           end
         end
       end
