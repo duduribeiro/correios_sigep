@@ -97,6 +97,20 @@ module CorreiosSigep
                 reference    'Referencia'
                 state        'Estado'
               end
+
+              add_object do
+                item        'Item'
+                id          '1'
+                description 'Descricao'
+                num         ''
+              end
+
+              add_object do
+                item        'Item'
+                id          '2'
+                description 'Descricao'
+                num         ''
+              end
             end
           end
         end
@@ -110,7 +124,7 @@ module CorreiosSigep
 
         it 'initializes with the correct collect' do
           %i(aditional_service ag ar card checklist declared_value description
-             number objects type client_id).each do |property|
+             number type client_id).each do |property|
                expect(subject.collect.send(property)).to eq(collect.send(property))
           end
         end
@@ -120,6 +134,14 @@ module CorreiosSigep
              phone postal_code reference state).each do |property|
             expect(subject.collect.sender.send(property)).to eq(sender.send(property))
           end
+        end
+
+        it 'initializes with the correct objects' do
+          expect(subject.collect.objects.length).to eq(2)
+          expect(subject.collect.objects.first.id).to eq('1')
+          expect(subject.collect.objects.first.item).to eq('Item')
+          expect(subject.collect.objects.first.description).to eq('Descricao')
+          expect(subject.collect.objects.last.id).to eq('2')
         end
       end
 

@@ -10,6 +10,15 @@ module CorreiosSigep
         end
       end
 
+      def add_object(object = nil, &block)
+        @instance.objects << if block_given?
+                               Models::Object.build(&block)
+                             else
+                               object
+                             end
+
+      end
+
       def with_sender(sender = nil, &block)
         @instance.sender = if block_given?
                              Models::Sender.build(&block)
