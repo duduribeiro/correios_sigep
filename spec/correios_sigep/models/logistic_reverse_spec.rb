@@ -4,6 +4,167 @@ module CorreiosSigep
       it { should respond_to :collect }
       it { should respond_to :recipient }
 
+      describe ".build" do
+        let(:recipient) do
+          CorreiosSigep::Models::Recipient.new({
+            address: 'Endereco',
+            area_code: 'DDD',
+            city: 'Cidade',
+            complement: 'Complemento',
+            email: 'Email',
+            name: 'Nome',
+            neighborhood: 'Bairro',
+            number: 'Numero',
+            phone: 'Telefone',
+            postal_code: 'CEP',
+            reference: 'Referencia',
+            state: 'Estado'
+          })
+        end
+
+        let(:sender) do
+          CorreiosSigep::Models::Sender.new({
+            address: 'Endereco',
+            area_code: 'DDD',
+            city: 'Cidade',
+            complement: 'Complemento',
+            email: 'Email',
+            name: 'Nome',
+            neighborhood: 'Bairro',
+            number: 'Numero',
+            phone: 'Telefone',
+            postal_code: 'CEP',
+            reference: 'Referencia',
+            state: 'Estado'
+          })
+        end
+
+        let(:collect) do
+          CorreiosSigep::Models::Collect.new({
+            aditional_service: '10.00',
+            ag: '5',
+            ar: '1',
+            card: '',
+            checklist: '2',
+            client_id: '102030',
+            declared_value: '1000.00',
+            description: 'Descricao',
+            number: '',
+            type: 'A'
+          })
+        end
+
+        let(:product) do
+          CorreiosSigep::Models::Product.new({
+            code: '116600403',
+            type: '0',
+            quantity: 1
+          })
+        end
+
+        subject do
+          described_class.build do
+            with_recipient do
+              address      'Endereco'
+              area_code    'DDD'
+              city         'Cidade'
+              complement   'Complemento'
+              email        'Email'
+              name         'Nome'
+              neighborhood 'Bairro'
+              number       'Numero'
+              phone        'Telefone'
+              postal_code  'CEP'
+              reference    'Referencia'
+              state        'Estado'
+            end
+
+            with_collect do
+              aditional_service '10.00'
+              ag                '5'
+              ar                '1'
+              card              ''
+              checklist         '2'
+              client_id         '102030'
+              declared_value    '1000.00'
+              description       'Descricao'
+              number            ''
+              type              'A'
+
+              with_sender do
+                address      'Endereco'
+                area_code    'DDD'
+                city         'Cidade'
+                complement   'Complemento'
+                email        'Email'
+                name         'Nome'
+                neighborhood 'Bairro'
+                number       'Numero'
+                phone        'Telefone'
+                postal_code  'CEP'
+                reference    'Referencia'
+                state        'Estado'
+              end
+
+              with_product do
+                code     '116600403'
+                type     '0'
+                quantity 1
+              end
+
+              add_object do
+                item        'Item'
+                id          '1'
+                description 'Descricao'
+                num         ''
+              end
+
+              add_object do
+                item        'Item'
+                id          '2'
+                description 'Descricao'
+                num         ''
+              end
+            end
+          end
+        end
+
+        it 'initializes with the correct recipient' do
+          %i(address area_code city complement email name neighborhood number
+             phone postal_code reference state).each do |property|
+            expect(subject.recipient.send(property)).to eq(recipient.send(property))
+          end
+        end
+
+        it 'initializes with the correct collect' do
+          %i(aditional_service ag ar card checklist declared_value description
+             number type client_id).each do |property|
+               expect(subject.collect.send(property)).to eq(collect.send(property))
+          end
+        end
+
+        it 'initializes with the correct sender' do
+          %i(address area_code city complement email name neighborhood number
+             phone postal_code reference state).each do |property|
+            expect(subject.collect.sender.send(property)).to eq(sender.send(property))
+          end
+        end
+
+        it 'initializes with the correct product' do
+          %i(code type quantity).each do |property|
+            expect(subject.collect.product.send(property)).to eq(product.send(property))
+          end
+        end
+
+        it 'initializes with the correct objects' do
+          expect(subject.collect.objects.length).to eq(2)
+          expect(subject.collect.objects.first.id).to eq('1')
+          expect(subject.collect.objects.first.item).to eq('Item')
+          expect(subject.collect.objects.first.description).to eq('Descricao')
+          expect(subject.collect.objects.last.id).to eq('2')
+        end
+      end
+
       describe '#initialize' do
         let(:logistic_reverse) { described_class.new params }
 

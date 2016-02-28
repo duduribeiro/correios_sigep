@@ -6,6 +6,12 @@ module CorreiosSigep
                     :neighborhood, :number, :phone, :postal_code, :reference,
                     :sms, :state
 
+      def self.build(&block)
+        builder = Builders::Person.new(self)
+        builder.instance_eval(&block)
+        builder.build
+      end
+
       def initialize(options={})
         @area_code        = options[:area_code]
         @address          = options[:address]
