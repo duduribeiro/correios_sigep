@@ -5,6 +5,8 @@ module CorreiosSigep
         options = { adapter: :net_http_persistent, proxy: CorreiosSigep.configuration.proxy, wsdl: wsdl }
         options.delete(:proxy) unless options[:proxy]
 
+        options.merge!({ headers: { 'SOAPAction' => '' }}) if ENV['GEM_ENV'] == 'test'
+
         @client = Savon.client(options)
       end
 

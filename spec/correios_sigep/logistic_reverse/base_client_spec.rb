@@ -12,7 +12,8 @@ module CorreiosSigep
             {
               adapter: :net_http_persistent,
               proxy: CorreiosSigep.configuration.proxy,
-              wsdl:  described_class.new.wsdl
+              wsdl:  described_class.new.wsdl,
+              headers: { 'SOAPAction' => '' }
             }
           end
 
@@ -24,7 +25,13 @@ module CorreiosSigep
 
         context 'without a proxy' do
           before { CorreiosSigep.configuration.proxy = nil }
-          let(:params) { { adapter: :net_http_persistent, wsdl: described_class.new.wsdl } }
+          let(:params) do
+            {
+              adapter: :net_http_persistent,
+              wsdl: described_class.new.wsdl,
+              headers: { 'SOAPAction' => '' }
+            }
+          end
 
           it 'initializes @client without proxy' do
             expect(Savon).to receive(:client).with(params) { true }
