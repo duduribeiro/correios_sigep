@@ -13,14 +13,14 @@ module CorreiosSigep
         # WSDL
         stub_request(:get, "http://webservicescolhomologacao.correios.com.br/ScolWeb/WebServiceScol?wsdl").
           with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
-          to_return(:status => 200, :body => correios_fixture('wsdl.xml'), :headers => {})
+          to_return(:status => 200, :body => correios_fixture('wsdl_test.xml'), :headers => {})
 
         # REQUEST
         stub_request(:post, "http://webservicescolhomologacao.correios.com.br/ScolWeb/WebServiceScol").
          with(:body => body, :headers => { 'Accept'=>'*/*',
             'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-            'Content-Length'=>'2267', 'Content-Type'=>'text/xml;charset=UTF-8',
-            'Soapaction'=>'"solicitarPostagemReversa"', 'User-Agent'=>'Ruby' }).
+            'Content-Length'=>'2279', 'Content-Type'=>'text/xml;charset=UTF-8',
+            'Soapaction'=>'', 'User-Agent'=>'Ruby' }).
          to_return(:status => 200, :body => correios_fixture("request_collect_number/#{response_body}"), :headers => {})
       end
 

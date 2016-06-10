@@ -51,14 +51,14 @@
       <item>127078</item>
       <id>1405670</id>
       <desc>Pen Drive SAndisk 16GB SDCZ50-016G-A95</desc>
-      <ship>ship</ship>
+      <entrega>ship</entrega>
       <num>1</num>
     </obj_col>
     <obj_col>
       <item>277574</item>
       <id>1405670</id>
       <desc>Chip unico claro Pre pago</desc>
-      <ship>ship</ship>
+      <entrega>ship</entrega>
       <num>2</num>
     </obj_col>
   </coletas_solicitadas>

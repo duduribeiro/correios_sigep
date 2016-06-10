@@ -20,7 +20,7 @@ module CorreiosSigep
           @builder.item  object.item
           @builder.id    object.id
           @builder.desc  object.description
-          @builder.ship  object.ship
+          @builder.entrega  object.ship
           @builder.num   object.num
         end
       end

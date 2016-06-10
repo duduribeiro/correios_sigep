@@ -18,7 +18,7 @@ module CorreiosSigep
          with(:body => body, :headers => { 'Accept'=>'*/*',
             'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
             'Content-Length'=>'633', 'Content-Type'=>'text/xml;charset=UTF-8',
-            'Soapaction'=>'"acompanharPedido"', 'User-Agent'=>'Ruby' }).
+            'Soapaction'=>'', 'User-Agent'=>'Ruby' }).
          to_return(:status => 200, :body => correios_fixture("request_sro/#{response_body}"), :headers => {})
       end
 
