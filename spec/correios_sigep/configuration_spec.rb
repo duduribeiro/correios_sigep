@@ -80,5 +80,18 @@ module CorreiosSigep
         expect(subject.user).to eq 'user'
       end
     end
+
+    describe '#timeout' do
+      it 'return nil when unset' do
+        expect(subject.timeout).to_not be
+      end
+    end
+
+    describe '#timeout=' do
+      it 'can set the timeout in configuration' do
+        subject.timeout = 15
+        expect(subject.timeout).to eq 15
+      end
+    end
   end
 end

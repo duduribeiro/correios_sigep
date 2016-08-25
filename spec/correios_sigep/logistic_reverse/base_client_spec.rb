@@ -13,6 +13,8 @@ module CorreiosSigep
               adapter: :net_http_persistent,
               proxy: CorreiosSigep.configuration.proxy,
               wsdl:  described_class.new.wsdl,
+              open_timeout: CorreiosSigep::LogisticReverse::BaseClient::DEFAULT_TIMEOUT,
+              read_timeout: CorreiosSigep::LogisticReverse::BaseClient::DEFAULT_TIMEOUT,
               headers: { 'SOAPAction' => '' }
             }
           end
@@ -29,6 +31,8 @@ module CorreiosSigep
             {
               adapter: :net_http_persistent,
               wsdl: described_class.new.wsdl,
+              open_timeout: CorreiosSigep::LogisticReverse::BaseClient::DEFAULT_TIMEOUT,
+              read_timeout: CorreiosSigep::LogisticReverse::BaseClient::DEFAULT_TIMEOUT,
               headers: { 'SOAPAction' => '' }
             }
           end
@@ -57,6 +61,26 @@ module CorreiosSigep
           end
         end
 
+      end
+
+      context 'setting a timeout' do
+        subject { described_class.new }
+
+        before { CorreiosSigep.configuration.timeout = 15 }
+        let(:params) do
+          {
+            adapter: :net_http_persistent,
+            wsdl:  described_class.new.wsdl,
+            open_timeout: CorreiosSigep.configuration.timeout,
+            read_timeout: CorreiosSigep.configuration.timeout,
+            headers: { 'SOAPAction' => '' }
+          }
+        end
+
+        it 'initializes @client with informed timeout' do
+          expect(Savon).to receive(:client).with(params) { true }
+          subject
+        end
       end
     end
   end

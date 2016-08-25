@@ -1,8 +1,19 @@
 module CorreiosSigep
   module LogisticReverse
     class BaseClient
+
+      DEFAULT_TIMEOUT = 30
+
       def initialize
-        options = { adapter: :net_http_persistent, proxy: CorreiosSigep.configuration.proxy, wsdl: wsdl }
+        timeout = CorreiosSigep.configuration.timeout || DEFAULT_TIMEOUT
+
+        options = {
+          adapter: :net_http_persistent,
+          proxy: CorreiosSigep.configuration.proxy,
+          wsdl: wsdl,
+          open_timeout: timeout,
+          read_timeout: timeout
+        }
         options.delete(:proxy) unless options[:proxy]
 
         options.merge!({ headers: { 'SOAPAction' => '' }}) if ENV['GEM_ENV'] == 'test'
