@@ -4,7 +4,7 @@ module CorreiosSigep
 
     describe '#administrative_code' do
       it 'returns nil when unset' do
-        expect(subject.administrative_code).not_to be
+        expect(subject.administrative_code).to be_nil
       end
     end
 
@@ -17,7 +17,7 @@ module CorreiosSigep
 
     describe '#card' do
       it 'returns nil when unset' do
-        expect(subject.card).not_to be
+        expect(subject.card).to be_nil
       end
     end
 
@@ -30,7 +30,7 @@ module CorreiosSigep
 
     describe '#contract' do
       it 'returns nil when unset' do
-        expect(subject.contract).not_to be
+        expect(subject.contract).to be_nil
       end
     end
 
@@ -43,7 +43,7 @@ module CorreiosSigep
 
     describe '#password' do
       it 'returns nil when unset' do
-        expect(subject.password).not_to be
+        expect(subject.password).to be_nil
       end
     end
 
@@ -57,7 +57,7 @@ module CorreiosSigep
 
     describe '#service_code' do
       it 'returns nil when unset' do
-        expect(subject.service_code).not_to be
+        expect(subject.service_code).to be_nil
       end
     end
 
@@ -70,7 +70,7 @@ module CorreiosSigep
 
     describe '#user' do
       it 'returns nil when unset' do
-        expect(subject.user).not_to be
+        expect(subject.user).to be_nil
       end
     end
 
@@ -83,7 +83,7 @@ module CorreiosSigep
 
     describe '#timeout' do
       it 'returns nil when unset' do
-        expect(subject.timeout).not_to be
+        expect(subject.timeout).to be_nil
       end
     end
 
