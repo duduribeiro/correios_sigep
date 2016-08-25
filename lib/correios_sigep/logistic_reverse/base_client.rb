@@ -1,7 +1,6 @@
 module CorreiosSigep
   module LogisticReverse
     class BaseClient
-
       DEFAULT_TIMEOUT = 30
 
       def initialize
