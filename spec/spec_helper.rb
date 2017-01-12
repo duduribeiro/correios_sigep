@@ -29,12 +29,11 @@ RSpec.configure do |config|
 
   config.before do
     CorreiosSigep.configure do |config|
-      config.user                 = '60618043'
-      config.password             = '8o8otn'
       config.administrative_code  = '08082650'
       config.card                 = '0057018901'
-      config.contract             = '9912208555'
       config.service_code         = '41076'
+      config.basic_auth_user      = 'user'
+      config.basic_auth_pass      = 'pass'
     end
   end
 end
