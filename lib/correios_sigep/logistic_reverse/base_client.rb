@@ -22,9 +22,9 @@ module CorreiosSigep
 
       def wsdl
         @wsdl ||= if ENV['GEM_ENV'] == 'test'
-                    'http://webservicescolhomologacao.correios.com.br/ScolWeb/WebServiceScol?wsdl'
+                    'https://apphom.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'
                   else
-                    'http://webservicescol.correios.com.br/ScolWeb/WebServiceScol?wsdl'
+                    'https://cws.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'
                   end
       end
 
