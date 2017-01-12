@@ -9,10 +9,7 @@ module CorreiosSigep
         end
 
         def build_xml!
-          add_node "usuario", @config.user
-          add_node "senha", @config.password
           add_node "codAdministrativo", @administrative_fields.administrative_code
-          add_node "contrato", @administrative_fields.contract
           add_node "codigo_servico", @administrative_fields.service_code
           add_node "cartao", @administrative_fields.card
         end
