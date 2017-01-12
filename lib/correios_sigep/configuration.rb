@@ -1,12 +1,12 @@
 module CorreiosSigep
   class Configuration
-    attr_accessor :administrative_code, :card, :contract, :password,
-                  :service_code, :user, :wsdl_base_url, :proxy, :timeout
+    attr_accessor :administrative_code, :card, :service_code, :wsdl_base_url, :proxy, :timeout,
+      :basic_auth_user, :basic_auth_pass
 
     def administrative_fields
       @administrative_fields ||=
         Models::AdministrativeFields.new(administrative_code: administrative_code,
-                                         card: card, contract: contract,
+                                         card: card,
                                          service_code: service_code)
 
     end

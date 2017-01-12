@@ -4,14 +4,16 @@ module CorreiosSigep
       DEFAULT_TIMEOUT = 30
 
       def initialize
-        timeout = CorreiosSigep.configuration.timeout || DEFAULT_TIMEOUT
+        timeout     = CorreiosSigep.configuration.timeout || DEFAULT_TIMEOUT
+        basic_auth  = [CorreiosSigep.configuration.basic_auth_user, CorreiosSigep.configuration.basic_auth_pass]
 
         options = {
           adapter: :net_http_persistent,
           proxy: CorreiosSigep.configuration.proxy,
           wsdl: wsdl,
           open_timeout: timeout,
-          read_timeout: timeout
+          read_timeout: timeout,
+          basic_auth: basic_auth
         }
         options.delete(:proxy) unless options[:proxy]
 
