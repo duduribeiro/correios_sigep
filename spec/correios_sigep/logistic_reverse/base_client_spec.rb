@@ -3,6 +3,9 @@ require 'spec_helper'
 module CorreiosSigep
   module LogisticReverse
     describe BaseClient do
+      let(:user) { CorreiosSigep.configuration.basic_auth_user }
+      let(:pass) { CorreiosSigep.configuration.basic_auth_pass }
+      
       context 'setting up a proxy' do
         subject { described_class.new }
 
@@ -15,6 +18,7 @@ module CorreiosSigep
               wsdl:  described_class.new.wsdl,
               open_timeout: CorreiosSigep::LogisticReverse::BaseClient::DEFAULT_TIMEOUT,
               read_timeout: CorreiosSigep::LogisticReverse::BaseClient::DEFAULT_TIMEOUT,
+              basic_auth: [user, pass],
               headers: { 'SOAPAction' => '' }
             }
           end
@@ -33,6 +37,7 @@ module CorreiosSigep
               wsdl: described_class.new.wsdl,
               open_timeout: CorreiosSigep::LogisticReverse::BaseClient::DEFAULT_TIMEOUT,
               read_timeout: CorreiosSigep::LogisticReverse::BaseClient::DEFAULT_TIMEOUT,
+              basic_auth: [user, pass],
               headers: { 'SOAPAction' => '' }
             }
           end
@@ -50,14 +55,14 @@ module CorreiosSigep
         context 'in a test environment' do
           it 'returns the staging url' do
             allow(ENV).to receive(:[]).with('GEM_ENV').and_return 'test'
-            expect(subject).to eq 'http://webservicescolhomologacao.correios.com.br/ScolWeb/WebServiceScol?wsdl'
+            expect(subject).to eq 'https://apphom.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'
           end
         end
 
         context 'in other environment' do
           it 'returns the production url' do
             allow(ENV).to receive(:[]).with('GEM_ENV').and_return 'prod'
-            expect(subject).to eq 'http://webservicescol.correios.com.br/ScolWeb/WebServiceScol?wsdl'
+            expect(subject).to eq 'https://cws.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'
           end
         end
 
@@ -73,6 +78,7 @@ module CorreiosSigep
             wsdl:  described_class.new.wsdl,
             open_timeout: CorreiosSigep.configuration.timeout,
             read_timeout: CorreiosSigep.configuration.timeout,
+            basic_auth: [user, pass],
             headers: { 'SOAPAction' => '' }
           }
         end
