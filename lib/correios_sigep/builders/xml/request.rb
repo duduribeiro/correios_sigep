@@ -5,11 +5,14 @@ module CorreiosSigep
 
         def initialize(document, overrides={})
           @document = Nokogiri::XML(document.to_xml)
-          set_administrative_fields!(overrides[:administrative] || CorreiosSigep.configuration.administrative_fields)
+          config    = CorreiosSigep.configuration
+
+          administrative_fields!( overrides[:administrative] ||
+                                  config.administrative_fields )
         end
 
-        def set_administrative_fields!(administrative_fields)
-          add_node "codAdministrativo", administrative_fields.administrative_code
+        def administrative_fields!(administrative_fields)
+          add_node 'codAdministrativo', administrative_fields.administrative_code
         end
 
         def to_xml

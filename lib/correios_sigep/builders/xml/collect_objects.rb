@@ -17,11 +17,11 @@ module CorreiosSigep
 
         private
         def build_item(object)
-          @builder.item  object.item
-          @builder.id    object.id
-          @builder.desc  object.description
+          @builder.item     object.item
+          @builder.id       object.id
+          @builder.desc     object.description
           @builder.entrega  object.ship
-          @builder.num   object.num
+          @builder.num      object.num
         end
       end
     end

@@ -10,11 +10,11 @@ module CorreiosSigep
 
       def to_xml
         builder = Nokogiri::XML::Builder.new do |xml|
-          xml.root {
+          xml.root do
             xml.tipoBusca('H')
             xml.tipoSolicitacao(@type)
             xml.numeroPedido(@collect_number)
-          }
+          end
         end
         builder.to_xml
       end
