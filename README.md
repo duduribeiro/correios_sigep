@@ -5,7 +5,7 @@ CorreiosSigep
 [![Coverage Status](https://coveralls.io/repos/duduribeiro/correios_sigep/badge.svg?branch=master&service=github)](https://coveralls.io/github/duduribeiro/correios_sigep?branch=master)
 
 - Integrador responsável pela comunicação com o SigepWeb - http://goo.gl/z8VJjJ.
-- Excelente documentação do SigepWeb providenciada pelos Correios: http://goo.gl/6TWp2f :trollface:
+- Excelente documentação do SigepWeb providenciada pelos Correios: [Manual Logistica Reversa.pdf](manual_logistica_reversa.pdf) :trollface:
 
 - Métodos suportados
 -- Solicitação de postagem de reversa (documentação, pág 36)
