@@ -1,7 +1,7 @@
 module CorreiosSigep
   class Configuration
     attr_accessor :administrative_code, :card, :service_code, :wsdl_base_url, :proxy, :timeout,
-      :user, :password
+                  :user, :password
 
     def administrative_fields
       @administrative_fields ||=
