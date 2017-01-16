@@ -2,7 +2,7 @@
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
   <S:Body>
     <ns2:acompanharPedidoResponse xmlns:ns2="http://webservice.scol.correios.com.br/">
-      <return>
+      <acompanharPedido>
         <codigo_administrativo>0808265</codigo_administrativo>
         <tipo_solicitacao>A</tipo_solicitacao>
         <coleta>
@@ -32,7 +32,7 @@
               <hora_ultima_atualizacao>11:02:36</hora_ultima_atualizacao>
            </objeto>
         </coleta>
-      </return>
+      </acompanharPedido>
     </ns2:acompanharPedidoResponse>
   </S:Body>
 </S:Envelope>

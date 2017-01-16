@@ -14,7 +14,7 @@ module CorreiosSigep
 
       private
       def process_response response
-        correios_hash = response.body[:acompanhar_pedido_response][:return]
+        correios_hash = response.body[:acompanhar_pedido_response][:acompanhar_pedido]
         check_sro_errors(correios_hash)
         correios_response(correios_hash[:coleta][:objeto])[:numero_etiqueta] || begin raise Models::Errors::SRONotReady; end
       end
