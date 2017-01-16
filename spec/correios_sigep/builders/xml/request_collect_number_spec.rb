@@ -5,7 +5,7 @@ module CorreiosSigep
     module XML
       describe RequestCollectNumber do
         describe '.build_xml' do
-          subject { described_class.build_xml(logistic_reverse) }
+          subject { described_class.build_xml(logistic_reverse).chop }
 
           let(:logistic_reverse) { CorreiosSigep::Models::LogisticReverse.new }
           let(:expected_xml)     { builders_fixture('request_collect_number.xml') }

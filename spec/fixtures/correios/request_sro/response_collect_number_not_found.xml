@@ -2,12 +2,12 @@
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
   <S:Body>
     <ns2:acompanharPedidoResponse xmlns:ns2="http://webservice.scol.correios.com.br/">
-      <return>
+      <acompanharPedido>
         <data>16/07/2015</data>
         <hora>19:21</hora>
         <cod_erro>-5</cod_erro>
         <msg_erro>Número do pedido inválido ou não localizado na base de dados para o tipo de solicitação informado.</msg_erro>
-      </return>
+      </acompanharPedido>
     </ns2:acompanharPedidoResponse>
   </S:Body>
 </S:Envelope>

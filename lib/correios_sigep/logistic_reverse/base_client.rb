@@ -4,14 +4,17 @@ module CorreiosSigep
       DEFAULT_TIMEOUT = 30
 
       def initialize
-        timeout = CorreiosSigep.configuration.timeout || DEFAULT_TIMEOUT
+        timeout     = CorreiosSigep.configuration.timeout || DEFAULT_TIMEOUT
+        user        = CorreiosSigep.configuration.user
+        password    = CorreiosSigep.configuration.password  
 
         options = {
           adapter: :net_http_persistent,
           proxy: CorreiosSigep.configuration.proxy,
           wsdl: wsdl,
           open_timeout: timeout,
-          read_timeout: timeout
+          read_timeout: timeout,
+          basic_auth: [user, password]
         }
         options.delete(:proxy) unless options[:proxy]
 
@@ -22,9 +25,9 @@ module CorreiosSigep
 
       def wsdl
         @wsdl ||= if ENV['GEM_ENV'] == 'test'
-                    'http://webservicescolhomologacao.correios.com.br/ScolWeb/WebServiceScol?wsdl'
+                    'https://apphom.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'
                   else
-                    'http://webservicescol.correios.com.br/ScolWeb/WebServiceScol?wsdl'
+                    'https://cws.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'
                   end
       end
 

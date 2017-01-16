@@ -3,23 +3,30 @@ require 'spec_helper'
 module CorreiosSigep
   module LogisticReverse
     describe RequestSRO do
-      let(:sro_params) { { collect_number: '1234', type: 'A' } }
-      let(:sro) { CorreiosSigep::Models::SRO.new(sro_params) }
-      let(:body)             { request_fixture('sro_request.xml').chop }
+      let(:sro_params)  { { collect_number: '1234', type: 'A' } }
+      let(:sro)         { CorreiosSigep::Models::SRO.new(sro_params) }
+      let(:body)        { request_fixture('sro_request.xml').chop }
+      let(:user)        { 'user' }
+      let(:pass)        { 'pass' }
 
       before do
         # WSDL
-        stub_request(:get, "http://webservicescolhomologacao.correios.com.br/ScolWeb/WebServiceScol?wsdl").
-          with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
-          to_return(:status => 200, :body => correios_fixture('wsdl.xml'), :headers => {})
+        stub_request(:get, 'https://apphom.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl').
+          with(basic_auth: [user, pass]).
+          with(:headers => {
+            'Accept'=>'*/*',
+            'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+            'User-Agent'=>'Ruby'
+          }).to_return(status: 200, body: correios_fixture('wsdl.xml'), headers: {})
 
         # REQUEST
-        stub_request(:post, "http://webservicescolhomologacao.correios.com.br/ScolWeb/WebServiceScol").
-         with(:body => body, :headers => { 'Accept'=>'*/*',
+        stub_request(:post, 'https://apphom.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS').
+          with(basic_auth: [user, pass]).
+          with(:body => body, :headers => {
+            'Accept'=>'*/*',
             'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-            'Content-Length'=>'633', 'Content-Type'=>'text/xml;charset=UTF-8',
-            'Soapaction'=>'', 'User-Agent'=>'Ruby' }).
-         to_return(:status => 200, :body => correios_fixture("request_sro/#{response_body}"), :headers => {})
+            'User-Agent'=>'Ruby'
+          }).to_return(status: 200, body: correios_fixture("request_sro/#{response_body}"), headers: {})
       end
 
       describe '.process' do

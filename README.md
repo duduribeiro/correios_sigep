@@ -34,11 +34,10 @@ Para utilizar a gem, é necessário configurar os campos necessários com base n
 
 ```ruby
 CorreiosSigep.configure do |config|
-  config.user                   = '60618043'
-  config.password               = '8o8otn'
+  config.user                   = 'empresacws'
+  config.password               = '123456'
   config.administrative_code    = '08082650'
   config.card                   = '0057018901'
-  config.contract               = '9912208555'
   config.service_code           = '41076'
 end
 ```
