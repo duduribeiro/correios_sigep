@@ -3,9 +3,9 @@ require 'spec_helper'
 module CorreiosSigep
   module LogisticReverse
     describe BaseClient do
-      let(:user) { CorreiosSigep.configuration.basic_auth_user }
-      let(:pass) { CorreiosSigep.configuration.basic_auth_pass }
-      
+      let(:user) { CorreiosSigep.configuration.user }
+      let(:pass) { CorreiosSigep.configuration.password }
+
       context 'setting up a proxy' do
         subject { described_class.new }
 

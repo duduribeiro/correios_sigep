@@ -5,7 +5,7 @@ module CorreiosSigep
 
       def initialize
         timeout     = CorreiosSigep.configuration.timeout || DEFAULT_TIMEOUT
-        basic_auth  = [CorreiosSigep.configuration.basic_auth_user, CorreiosSigep.configuration.basic_auth_pass]
+        basic_auth  = [CorreiosSigep.configuration.user, CorreiosSigep.configuration.password]
 
         options = {
           adapter: :net_http_persistent,

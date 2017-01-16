@@ -54,33 +54,33 @@ module CorreiosSigep
       end
     end
 
-    describe '#basic_auth_user' do
+    describe '#user' do
       it 'returns nil when unset' do
-        expect(subject.basic_auth_user).to be_nil
+        expect(subject.user).to be_nil
       end
     end
 
-    describe '#basic_auth_user=' do
+    describe '#user=' do
       let(:user) { 'user' }
 
-      it 'sets the basic_auth_user in configuration' do
-        subject.basic_auth_user = user
-        expect(subject.basic_auth_user).to eq user
+      it 'sets the user in configuration' do
+        subject.user = user
+        expect(subject.user).to eq user
       end
     end
 
-    describe '#basic_auth_pass' do
+    describe '#password' do
       it 'returns nil when unset' do
-        expect(subject.basic_auth_pass).to be_nil
+        expect(subject.password).to be_nil
       end
     end
 
-    describe '#basic_auth_pass=' do
+    describe '#password=' do
       let(:pass) { 'pass' }
 
-      it 'sets the basic_auth_pass in configuration' do
-        subject.basic_auth_pass = pass
-        expect(subject.basic_auth_pass).to eq pass
+      it 'sets the password in configuration' do
+        subject.password = pass
+        expect(subject.password).to eq pass
       end
     end
   end

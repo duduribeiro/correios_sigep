@@ -32,8 +32,8 @@ RSpec.configure do |config|
       config.administrative_code  = '08082650'
       config.card                 = '0057018901'
       config.service_code         = '41076'
-      config.basic_auth_user      = 'user'
-      config.basic_auth_pass      = 'pass'
+      config.user                 = 'user'
+      config.password             = 'pass'
     end
   end
 end
