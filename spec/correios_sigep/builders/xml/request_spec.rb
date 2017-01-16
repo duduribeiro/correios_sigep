@@ -9,8 +9,6 @@ module CorreiosSigep
           context 'when do not override anything' do
             it 'builds a Authentication XML with Configuration parameters' do
               expected_response = [
-                '<cartao>0057018901</cartao>',
-                '<codigo_servico>41076</codigo_servico>',
                 '<codAdministrativo>08082650</codAdministrativo><test/>'
               ].join + "\n"
               expect(described_class.build_xml request).to eq expected_response
@@ -23,8 +21,6 @@ module CorreiosSigep
                                                                        card: 'card123',
                                                                        service_code: 'ser123')
               expected_response = [
-                '<cartao>card123</cartao>',
-                '<codigo_servico>ser123</codigo_servico>',
                 '<codAdministrativo>adm123</codAdministrativo><test/>'
               ].join + "\n"
               expect(described_class.build_xml request, administrative: administrative_fields).to eq expected_response
