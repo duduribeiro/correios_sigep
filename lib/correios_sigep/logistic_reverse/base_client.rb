@@ -6,7 +6,7 @@ module CorreiosSigep
       def initialize
         timeout     = CorreiosSigep.configuration.timeout || DEFAULT_TIMEOUT
         user        = CorreiosSigep.configuration.user
-        password    = CorreiosSigep.configuration.password  
+        password    = CorreiosSigep.configuration.password
 
         options = {
           adapter: :net_http_persistent,
@@ -14,11 +14,10 @@ module CorreiosSigep
           wsdl: wsdl,
           open_timeout: timeout,
           read_timeout: timeout,
-          basic_auth: [user, password]
+          basic_auth: [user, password],
+          headers: { 'SOAPAction' => '' }
         }
         options.delete(:proxy) unless options[:proxy]
-
-        options.merge!({ headers: { 'SOAPAction' => '' }}) if ENV['GEM_ENV'] == 'test'
 
         @client = Savon.client(options)
       end
