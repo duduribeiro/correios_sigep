@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:solicitarPostagemReversaResponse xmlns:ns2="http://webservice.scol.correios.com.br/">
+      <solicitarPostagemReversa>
+        <status_processamento>01</status_processamento>
+        <data_processamento>31/01/2017</data_processamento>
+        <hora_processamento>13:43</hora_processamento>
+        <cod_erro>00</cod_erro>
+        <msg_erro/>
+        <resultado_solicitacao>
+          <tipo>A</tipo>
+          <id_cliente>2102774</id_cliente>
+          <status_objeto>00</status_objeto>
+          <data_solicitacao>31/01/2017</data_solicitacao>
+          <hora_solicitacao>13:43</hora_solicitacao>
+          <codigo_erro>117</codigo_erro>
+          <descricao_erro>CEP DO REMETENTE INEXISTENTE (88334883)</descricao_erro>
+        </resultado_solicitacao>
+      </solicitarPostagemReversa>
+    </ns2:solicitarPostagemReversaResponse>
+  </S:Body>
+</S:Envelope>

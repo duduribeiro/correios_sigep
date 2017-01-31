@@ -74,7 +74,6 @@ module CorreiosSigep
           end
         end
 
-
         context 'when collect is for a not answered zipcode' do
           let(:response_body) { 'response_not_answered_for_zipcode.xml' }
 
@@ -91,12 +90,20 @@ module CorreiosSigep
           end
         end
 
-
         context 'when correios answer with another code' do
           let(:response_body) { 'response_unexpected.xml' }
 
           it 'raises UnknownError error' do
             expect{subject}.to raise_error(Models::Errors::UnknownError)
+          end
+        end
+
+        context 'when some information is wrong' do
+          let(:response_body) { 'response_validation_error.xml' }
+          let(:message)       { 'CEP DO REMETENTE INEXISTENTE (88334883)' }
+
+          it 'raises InvalidSolicitation error' do
+            expect{subject}.to raise_error(Models::Errors::InvalidSolicitation, message)
           end
         end
 
