@@ -2,13 +2,13 @@
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
   <S:Body>
     <ns2:solicitarPostagemReversaResponse xmlns:ns2="http://webservice.scol.correios.com.br/">
-      <return>
+      <solicitarPostagemReversa>
         <status_processamento>00</status_processamento>
         <data_processamento>09/04/2014</data_processamento>
         <hora_processamento>14:22</hora_processamento>
         <cod_erro>210</cod_erro>
         <msg_erro>SERVIO INDISPONVEL NO MOMENTO </msg_erro>
-      </return>
+      </solicitarPostagemReversa>
     </ns2:solicitarPostagemReversaResponse>
   </S:Body>
 </S:Envelope>

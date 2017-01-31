@@ -2,13 +2,13 @@
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
   <S:Body>
     <ns2:solicitarPostagemReversaResponse xmlns:ns2="http://webservice.scol.correios.com.br/">
-      <return>
+      <solicitarPostagemReversa>
         <status_processamento>00</status_processamento>
         <data_processamento>26/06/2014</data_processamento>
         <hora_processamento>16:03</hora_processamento>
         <cod_erro>111</cod_erro>
         <msg_erro>COLETA DOMICILIAR NO DISPONVEL PARA ESSA LOCALIDADE (07776900)</msg_erro>
-      </return>
+      </solicitarPostagemReversa>
     </ns2:solicitarPostagemReversaResponse>
   </S:Body>
 </S:Envelope>
