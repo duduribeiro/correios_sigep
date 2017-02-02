@@ -2,13 +2,13 @@
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
   <S:Body>
     <ns2:solicitarPostagemReversaResponse xmlns:ns2="http://webservice.scol.correios.com.br/">
-      <return>
+      <solicitarPostagemReversa>
         <status_processamento>00</status_processamento>
         <data_processamento>02/06/2015</data_processamento>
         <hora_processamento>12:07</hora_processamento>
         <cod_erro>105</cod_erro>
         <msg_erro>CLIENTE NÃO CONFIGURADO PARA USAR O SISTEMA (Dados de login inválidos (Código administrativo, usuário ou senha)</msg_erro>
-      </return>
+      </solicitarPostagemReversa>
     </ns2:solicitarPostagemReversaResponse>
   </S:Body>
 </S:Envelope>

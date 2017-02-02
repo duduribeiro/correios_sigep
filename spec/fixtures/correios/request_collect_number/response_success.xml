@@ -2,7 +2,7 @@
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
   <S:Body>
     <ns2:solicitarPostagemReversaResponse xmlns:ns2="http://webservice.scol.correios.com.br/">
-      <return>
+      <solicitarPostagemReversa>
         <status_processamento>01</status_processamento>
         <data_processamento>28/03/2014</data_processamento>
         <hora_processamento>11:14</hora_processamento>
@@ -21,7 +21,7 @@
           <codigo_erro>0</codigo_erro>
           <descricao_erro/>
         </resultado_solicitacao>
-      </return>
+      </solicitarPostagemReversa>
     </ns2:solicitarPostagemReversaResponse>
   </S:Body>
 </S:Envelope>
