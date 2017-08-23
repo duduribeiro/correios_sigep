@@ -98,12 +98,28 @@ module CorreiosSigep
           end
         end
 
-        context 'when some information is wrong' do
+        context 'when any information is wrong' do
           let(:response_body) { 'response_validation_error.xml' }
           let(:message)       { 'CEP DO REMETENTE INEXISTENTE (88334883)' }
 
           it 'raises InvalidSolicitation error' do
             expect{subject}.to raise_error(Models::Errors::InvalidSolicitation, message)
+          end
+        end
+
+        context 'when response has invalid characters' do
+          let(:response_body) { 'response_invalid_encoding.xml' }
+          let(:message)       { 'COLETA DOMICILIAR NÃO DISPONÍVEL PARA ESSA LOCALIDADE' }
+          let(:invalid_encoded_response_body) do
+            File.read(correios_fixture("request_collect_number/#{response_body}")).gsub(
+              'INVALID_ENCODE_MESSAGE',
+              "COLETA DOMICILIAR N\xC3\x83O DISPON\xC3\x8DVEL PARA ESSA LOCALIDADE"
+            ).force_encoding('ASCII-8BIT')
+          end
+
+          it 'raises InvalidSolicitation error' do
+            expect_any_instance_of(Savon::Response).to receive(:to_xml) { invalid_encoded_response_body }
+            expect{ subject }.to raise_error(Models::Errors::InvalidSolicitation, message)
           end
         end
 

@@ -1,3 +1,5 @@
+# encoding UTF-8
+
 module CorreiosSigep
   module LogisticReverse
     class RequestCollectNumber < BaseClient
@@ -16,7 +18,7 @@ module CorreiosSigep
       private
 
       def process_response(response)
-        response_xml = response.to_xml.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
+        response_xml = response.to_xml.force_encoding('UTF-8')
         response_doc = Nokogiri::XML.parse(response_xml)
         code = response_doc.search('//cod_erro').text.to_i
 
