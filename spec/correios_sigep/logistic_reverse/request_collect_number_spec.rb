@@ -90,6 +90,22 @@ module CorreiosSigep
           end
         end
 
+        context 'when user has an invalid contract' do
+          let(:response_body) { 'invalid_contract.xml' }
+
+          it 'raises InvalidContract error' do
+            expect{subject}.to raise_error(Models::Errors::InvalidContract)
+          end
+        end
+
+        context 'when declared value is invalid' do
+          let(:response_body) { 'invalid_declared_value.xml' }
+
+          it 'raises InvalidDeclaredValue error' do
+            expect{subject}.to raise_error(Models::Errors::InvalidDeclaredValue)
+          end
+        end
+
         context 'when correios answer with another code' do
           let(:response_body) { 'response_unexpected.xml' }
 

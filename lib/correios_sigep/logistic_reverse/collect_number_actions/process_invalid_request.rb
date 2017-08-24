@@ -23,7 +23,9 @@ module CorreiosSigep
             Models::CorreiosResponseCodes::INEXISTENT_ZIPCODE => Models::Errors::InexistentZipcode,
             Models::CorreiosResponseCodes::UNAVAILABLE_HOUSE_COLLECT => Models::Errors::UnavailableHouseCollect,
             Models::CorreiosResponseCodes::COLLECT_NOT_ANSWERED_FOR_THE_ZIPCODE => Models::Errors::CollectNotAnsweredForTheZipcode,
-            Models::CorreiosResponseCodes::NOT_CONFIGURED_CLIENT => Models::Errors::NotConfiguredClient
+            Models::CorreiosResponseCodes::NOT_CONFIGURED_CLIENT => Models::Errors::NotConfiguredClient,
+            Models::CorreiosResponseCodes::INVALID_CONTRACT => Models::Errors::InvalidContract,
+            Models::CorreiosResponseCodes::INVALID_DECLARED_VALUE => Models::Errors::InvalidDeclaredValue
           }
         end
       end
