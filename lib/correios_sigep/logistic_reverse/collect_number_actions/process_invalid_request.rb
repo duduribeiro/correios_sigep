@@ -7,10 +7,7 @@ module CorreiosSigep
         end
 
         def run
-          code          = @response.search('//cod_erro').text.to_i
-          error_message = @response.search('//msg_erro').text
-          klass         = (errors[code] || Models::Errors::UnknownError)
-
+          klass = (errors[error_code] || errors[new_error_code] || Models::Errors::UnknownError)
           raise klass.new(error_message)
         end
 
@@ -27,6 +24,20 @@ module CorreiosSigep
             Models::CorreiosResponseCodes::INVALID_CONTRACT => Models::Errors::InvalidContract,
             Models::CorreiosResponseCodes::INVALID_DECLARED_VALUE => Models::Errors::InvalidDeclaredValue
           }
+        end
+
+        def error_code
+          @response.search('//cod_erro').text.to_i
+        end
+
+        def new_error_code
+          return nil if @response.search('//codigo_erro').empty?
+          @response.search('//codigo_erro').text.to_i
+        end
+
+        def error_message
+          error_message = @response.search('//msg_erro').text
+          @response.search('//descricao_erro').text if error_message.blank?
         end
       end
     end

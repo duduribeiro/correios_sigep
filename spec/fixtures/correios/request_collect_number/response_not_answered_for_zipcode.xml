@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
-  <S:Body>
-    <ns2:solicitarPostagemReversaResponse xmlns:ns2="http://webservice.scol.correios.com.br/">
-      <solicitarPostagemReversa>
-        <status_processamento>00</status_processamento>
-        <data_processamento>09/04/2014</data_processamento>
-        <hora_processamento>11:42</hora_processamento>
-        <cod_erro>117</cod_erro>
-        <msg_erro>CEP DO REMETENTE INEXISTENTE (88900000)</msg_erro>
-      </solicitarPostagemReversa>
-    </ns2:solicitarPostagemReversaResponse>
+  <ns2:solicitarPostagemReversaResponse xmlns:ns2=\"http://service.logisticareversa.correios.com.br/\">
+    <solicitarPostagemReversa>
+      <status_processamento>01</status_processamento>
+      <data_processamento>24/08/2017</data_processamento>
+      <hora_processamento>11:15</hora_processamento>
+      <cod_erro>00</cod_erro>
+      <msg_erro></msg_erro>
+      <resultado_solicitacao>
+        <tipo>C</tipo>
+        <id_cliente>123456</id_cliente>
+        <status_objeto>00</status_objeto>
+        <data_solicitacao>24/08/2017</data_solicitacao>
+        <hora_solicitacao>11:15</hora_solicitacao>
+        <codigo_erro>117</codigo_erro>
+        <descricao_erro>CEP DO REMETENTE INEXISTENTE (97573000)</descricao_erro>
+      </resultado_solicitacao>
+    </solicitarPostagemReversa>
+  </ns2:solicitarPostagemReversaResponse>
   </S:Body>
 </S:Envelope>
