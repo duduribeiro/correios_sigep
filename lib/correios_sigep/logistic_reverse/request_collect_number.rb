@@ -1,3 +1,5 @@
+# encoding UTF-8
+
 module CorreiosSigep
   module LogisticReverse
     class RequestCollectNumber < BaseClient
@@ -16,15 +18,19 @@ module CorreiosSigep
       private
 
       def process_response(response)
-        response_xml = response.to_xml.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
+        response_xml = response.to_xml.force_encoding('UTF-8')
         response_doc = Nokogiri::XML.parse(response_xml)
-        code = response_doc.search('//cod_erro').text.to_i
+        code         = response_doc.search('//cod_erro').text.to_i
 
-        action(code).new(response_doc).run
+        unless response_doc.search('//codigo_erro').empty?
+          new_code = response_doc.search('//codigo_erro').text.to_i
+        end
+
+        action([code, new_code || nil].compact).new(response_doc).run
       end
 
-      def action(code)
-        if Models::CorreiosResponseCodes::SUCCESS == code
+      def action(response_codes)
+        if response_codes.all?{|response_code| response_code == Models::CorreiosResponseCodes::SUCCESS}
           CollectNumberActions::ProcessValidRequest
         else
           CollectNumberActions::ProcessInvalidRequest
