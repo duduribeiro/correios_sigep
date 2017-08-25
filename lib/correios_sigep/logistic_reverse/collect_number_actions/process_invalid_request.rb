@@ -27,6 +27,7 @@ module CorreiosSigep
         end
 
         def error_code
+          return nil if @response.search('//cod_erro').empty?
           @response.search('//cod_erro').text.to_i
         end
 
