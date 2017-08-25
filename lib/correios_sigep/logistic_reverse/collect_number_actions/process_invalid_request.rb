@@ -37,8 +37,7 @@ module CorreiosSigep
         end
 
         def error_message
-          error_message = @response.search('//msg_erro').text
-          @response.search('//descricao_erro').text if error_message.blank?
+          "#{@response.search('//msg_erro').text} #{@response.search('//descricao_erro').text}".strip
         end
       end
     end

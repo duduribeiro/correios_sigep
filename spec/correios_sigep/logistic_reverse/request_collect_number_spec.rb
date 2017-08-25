@@ -114,6 +114,15 @@ module CorreiosSigep
           end
         end
 
+        context 'when correios has message in both tags' do
+          let(:response_body) { 'two_error_message.xml' }
+          let(:message) { 'Mensagem 1 Mensagem 2' }
+
+          it 'raises UnknownError error' do
+            expect{ subject }.to raise_error(Models::Errors::UnknownError, message)
+          end
+        end
+
         context 'when response has invalid characters' do
           let(:response_body) { 'response_invalid_encoding.xml' }
           let(:message)       { 'COLETA DOMICILIAR NÃO DISPONÍVEL PARA ESSA LOCALIDADE' }
