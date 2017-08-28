@@ -22,7 +22,8 @@ module CorreiosSigep
             Models::CorreiosResponseCodes::COLLECT_NOT_ANSWERED_FOR_THE_ZIPCODE => Models::Errors::CollectNotAnsweredForTheZipcode,
             Models::CorreiosResponseCodes::NOT_CONFIGURED_CLIENT => Models::Errors::NotConfiguredClient,
             Models::CorreiosResponseCodes::INVALID_CONTRACT => Models::Errors::InvalidContract,
-            Models::CorreiosResponseCodes::INVALID_DECLARED_VALUE => Models::Errors::InvalidDeclaredValue
+            Models::CorreiosResponseCodes::INVALID_DECLARED_VALUE => Models::Errors::InvalidDeclaredValue,
+            Models::CorreiosResponseCodes::LOW_DECLARED_VALUE => Models::Errors::LowDeclaredValue
           }
         end
 

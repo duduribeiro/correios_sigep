@@ -24,6 +24,7 @@ module CorreiosSigep
       autoload :UnavailableService, 'correios_sigep/models/errors/unavailable_service'
       autoload :InvalidContract, 'correios_sigep/models/errors/invalid_contract'
       autoload :InvalidDeclaredValue, 'correios_sigep/models/errors/invalid_declared_value'
+      autoload :LowDeclaredValue, 'correios_sigep/models/errors/low_declared_value'
       autoload :UnknownError, 'correios_sigep/models/errors/unknown_error'
     end
   end

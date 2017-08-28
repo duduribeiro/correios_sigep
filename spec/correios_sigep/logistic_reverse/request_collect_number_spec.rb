@@ -106,6 +106,14 @@ module CorreiosSigep
           end
         end
 
+        context 'when declared value is lower than any valid value' do
+          let(:response_body) { 'low_declared_value.xml' }
+
+          it 'raises InvalidDeclaredValue error' do
+            expect{ subject }.to raise_error(Models::Errors::LowDeclaredValue)
+          end
+        end
+
         context 'when correios answer with another code' do
           let(:response_body) { 'response_unexpected.xml' }
 

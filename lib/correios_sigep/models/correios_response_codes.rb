@@ -10,6 +10,7 @@ module CorreiosSigep
       NOT_CONFIGURED_CLIENT                 = 105
       INVALID_CONTRACT                      = 109
       INVALID_DECLARED_VALUE                = 205
+      LOW_DECLARED_VALUE                    = 211
     end
   end
 end
