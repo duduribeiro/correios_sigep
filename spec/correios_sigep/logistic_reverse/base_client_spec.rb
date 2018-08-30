@@ -5,6 +5,29 @@ module CorreiosSigep
     describe BaseClient do
       let(:user) { CorreiosSigep.configuration.user }
       let(:pass) { CorreiosSigep.configuration.password }
+      let(:default_params) do
+        {
+          adapter: :net_http_persistent,
+          open_timeout: CorreiosSigep::LogisticReverse::BaseClient::DEFAULT_TIMEOUT,
+          read_timeout: CorreiosSigep::LogisticReverse::BaseClient::DEFAULT_TIMEOUT,
+          basic_auth: [user, pass],
+          headers: { 'SOAPAction' => '' }
+        }
+      end
+
+      context 'using the development configuration' do
+        subject { described_class.new }
+
+        before { CorreiosSigep.configuration.development = true }
+        let(:params) do
+          default_params.merge({wsdl: 'https://apphom.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl' })
+        end
+
+        it 'initializes @client with test WSDL' do
+          expect(Savon).to receive(:client).with(params) { true }
+          subject
+        end
+      end
 
       context 'setting up a proxy' do
         subject { described_class.new }

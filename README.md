@@ -42,6 +42,12 @@ CorreiosSigep.configure do |config|
 end
 ```
 
+Para utilizar o ambiente de homologação dos correios, adicione essa configuração:
+
+```ruby
+  config.development = true
+```
+
 Se for necessário, é possível adicionar também um proxy.
 
 ```ruby
