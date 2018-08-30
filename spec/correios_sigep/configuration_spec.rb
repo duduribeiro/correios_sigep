@@ -28,6 +28,24 @@ module CorreiosSigep
       end
     end
 
+    describe '#development=' do
+      it 'sets if it is the development environment' do
+        subject.development = true
+        expect(subject.development).to be_truthy
+      end
+    end
+
+    describe '#development?' do
+      it 'returns falsey if not set' do
+        expect(subject.development?).to be_falsey
+      end
+
+      it 'returns the configuration value' do
+        subject.development = true
+        expect(subject.development?).to be_truthy
+      end
+    end
+
     describe '#service_code' do
       it 'returns nil when unset' do
         expect(subject.service_code).to be_nil

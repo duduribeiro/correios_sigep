@@ -1,6 +1,6 @@
 module CorreiosSigep
   class Configuration
-    attr_accessor :administrative_code, :card, :service_code, :wsdl_base_url,
+    attr_accessor :administrative_code, :card, :development, :service_code, :wsdl_base_url,
                   :proxy, :timeout, :user, :password
 
     def administrative_fields
@@ -9,6 +9,10 @@ module CorreiosSigep
                                          card: card,
                                          service_code: service_code)
 
+    end
+
+    def development?
+      @development
     end
   end
 end

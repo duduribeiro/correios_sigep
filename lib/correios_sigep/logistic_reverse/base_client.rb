@@ -23,7 +23,7 @@ module CorreiosSigep
       end
 
       def wsdl
-        @wsdl ||= if ENV['GEM_ENV'] == 'test'
+        @wsdl ||= if ENV['GEM_ENV'] == 'test' || CorreiosSigep.configuration.development?
                     'https://apphom.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'
                   else
                     'https://cws.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS?wsdl'
