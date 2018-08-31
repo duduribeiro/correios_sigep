@@ -3,6 +3,12 @@ require 'spec_helper'
 module CorreiosSigep
   module LogisticReverse
     describe BaseClient do
+      before do
+        CorreiosSigep.configuration.timeout     = CorreiosSigep::LogisticReverse::BaseClient::DEFAULT_TIMEOUT
+        CorreiosSigep.configuration.proxy       = nil
+        CorreiosSigep.configuration.development = false
+      end
+
       let(:user) { CorreiosSigep.configuration.user }
       let(:pass) { CorreiosSigep.configuration.password }
       let(:default_params) do

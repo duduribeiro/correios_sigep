@@ -30,14 +30,14 @@ Ou instale manualmente com:
 ## Utilizando
 
 ### Configurando
-Para utilizar a gem, é necessário configurar os campos necessários com base nos dados contrato com os Correios.
+Para utilizar a gem, é necessário configurar os campos necessários com base nos dados contrato com os Correios. (O exemplo a seguir são os dados do ambiente de homologação)
 
 ```ruby
 CorreiosSigep.configure do |config|
   config.user                   = 'empresacws'
   config.password               = '123456'
-  config.administrative_code    = '08082650'
-  config.card                   = '0057018901'
+  config.administrative_code    = '17000190'
+  config.card                   = '0067599079'
   config.service_code           = '41076'
 end
 ```
